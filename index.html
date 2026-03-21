@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SMK Insan Madani Palasari</title>
+  <!--
+    ============================================================
+    FAVICON / ICON TAB BROWSER
+    Ganti href di bawah dengan path logo sekolah Anda.
+    Contoh: <link rel="icon" href="./assets/logo-smk.png" type="image/png"/>
+    ============================================================
+  -->
+  <link rel="icon" href="assets/logo copy.png" type="image/png"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root{--primary:#1a7a6e;--primary-dark:#135f56;--accent:#f5a623;--accent-dark:#e09010;--text:#333;--text-light:#666;--white:#fff;--light-bg:#f8f9fa;--border:#e5e5e5;}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Poppins',sans-serif;color:var(--text);overflow-x:hidden;}
+    .container{max-width:1180px;margin:0 auto;padding:0 20px;}
+
+    /* TOPBAR */
+    .topbar{background:var(--primary);color:#fff;font-size:13px;padding:7px 0;}
+    .topbar .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;}
+    .topbar-left{display:flex;gap:14px;align-items:center;}
+    .topbar-left .socials{display:flex;gap:7px;}
+    .topbar-left .socials a{width:24px;height:24px;background:rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;transition:background .2s;text-decoration:none;}
+    .topbar-left .socials a:hover{background:var(--accent);}
+    .topbar-right{display:flex;gap:16px;align-items:center;flex-wrap:wrap;}
+    .topbar-right span{display:flex;align-items:center;gap:5px;}
+    .topbar-right i{color:var(--accent);}
+
+    /* NAVBAR */
+    .navbar{background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.08);position:sticky;top:0;z-index:999;}
+    .navbar .container{display:flex;align-items:center;justify-content:space-between;padding:10px 20px;}
+    .logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+    /*
+      ============================================================
+      LOGO SEKOLAH — Ganti src img di dalam .logo-img-wrap
+      dengan path logo resmi sekolah.
+      Contoh: <img src="./assets/logo-smk.png" alt="Logo"/>
+      ============================================================
+    */
+    .logo-img-wrap{flex-shrink:0;display:flex;align-items:center;}
+    .logo-img-wrap img{height:40px;width:auto;display:block;object-fit:contain;}
+    .logo-text{line-height:1.18;}
+    .logo-text .ls{font-size:9px;font-weight:600;color:var(--text-light);letter-spacing:.4px;}
+    .logo-text .lm{font-size:15px;font-weight:800;color:var(--primary);line-height:1.05;}
+    .logo-text .lm span{color:var(--accent);}
+    .logo-text .lp{font-size:9px;font-weight:700;color:var(--text-light);text-transform:uppercase;letter-spacing:.8px;display:block;}
+    .nav-links{display:flex;gap:2px;list-style:none;align-items:center;}
+    .nav-links>li{position:relative;}
+    .nav-links>li>a{display:flex;align-items:center;gap:4px;padding:8px 13px;color:var(--text);text-decoration:none;font-size:13.5px;font-weight:500;border-radius:4px;transition:color .2s;}
+    .nav-links>li>a:hover,.nav-links>li>a.active{color:var(--primary);}
+    .nav-links>li>a .arr{font-size:9px;}
+    .dropdown{display:none;position:absolute;top:100%;left:0;background:#fff;min-width:210px;box-shadow:0 8px 24px rgba(0,0,0,.12);border-radius:6px;padding:8px 0;z-index:100;}
+    .nav-links>li:hover .dropdown{display:block;}
+    .dropdown a{display:block;padding:8px 20px;color:var(--text);text-decoration:none;font-size:13px;transition:background .2s,color .2s;}
+    .dropdown a:hover{background:#f0f9f7;color:var(--primary);}
+    .btn-apply{background:var(--accent);color:#fff;padding:10px 20px;border-radius:30px;text-decoration:none;font-weight:600;font-size:13.5px;transition:background .2s,transform .15s;display:flex;align-items:center;gap:6px;white-space:nowrap;}
+    .btn-apply:hover{background:var(--accent-dark);transform:translateY(-1px);}
+    .hamburger{display:none;cursor:pointer;font-size:22px;color:var(--primary);}
+    .mobile-menu{display:none;background:#fff;padding:10px 20px 20px;border-top:1px solid var(--border);}
+    .mobile-menu.open{display:block;}
+    .mobile-menu ul{list-style:none;}
+    .mobile-menu ul li a{display:block;padding:10px 0;border-bottom:1px solid var(--border);color:var(--text);text-decoration:none;font-size:14px;}
+
+    /* HERO */
+    .hero{background:linear-gradient(120deg,#0d5c52,#1a7a6e 40%,#1f9080);min-height:520px;position:relative;overflow:hidden;display:flex;align-items:center;}
+    .hero::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1400&q=80') center/cover;opacity:.18;}
+    .hero-content{position:relative;z-index:2;max-width:560px;padding:70px 0;}
+    .hero-tag{display:inline-flex;align-items:center;gap:6px;color:var(--accent);font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;}
+    .hero h1{font-size:46px;font-weight:800;color:#fff;line-height:1.15;margin-bottom:18px;}
+    .hero h1 span{color:var(--accent);}
+    .hero p{color:rgba(255,255,255,.82);font-size:15px;line-height:1.7;margin-bottom:32px;max-width:480px;}
+    .hero-btns{display:flex;gap:14px;flex-wrap:wrap;}
+    .btn-primary{background:var(--accent);color:#fff;padding:13px 30px;border-radius:30px;text-decoration:none;font-weight:600;font-size:14px;display:inline-flex;align-items:center;gap:6px;transition:background .2s,transform .15s;}
+    .btn-primary:hover{background:var(--accent-dark);transform:translateY(-2px);}
+    .btn-outline{background:transparent;color:#fff;padding:12px 28px;border-radius:30px;text-decoration:none;font-weight:600;font-size:14px;border:2px solid rgba(255,255,255,.55);display:inline-flex;align-items:center;gap:6px;transition:border-color .2s,background .2s,transform .15s;}
+    .btn-outline:hover{border-color:#fff;background:rgba(255,255,255,.1);transform:translateY(-2px);}
+    .hero-aside{position:absolute;right:0;top:0;bottom:0;width:44%;z-index:1;overflow:hidden;}
+    .hero-aside img{width:100%;height:100%;object-fit:cover;opacity:.65;}
+    .hero-aside::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#1a7a6e,transparent 60%);z-index:2;}
+
+    /* FEATURES */
+    .features{background:#fff;}
+    .features-grid{display:grid;grid-template-columns:repeat(4,1fr);box-shadow:0 8px 32px rgba(0,0,0,.10);border-radius:0 0 12px 12px;overflow:hidden;}
+    .feature-card{padding:30px 24px;text-align:center;border-right:1px solid #eee;background:#fff;transition:background .25s;}
+    .feature-card:last-child{border-right:none;}
+    .feature-card:hover{background:var(--primary);}
+    .feature-card:hover .feature-icon,.feature-card:hover h4,.feature-card:hover p{color:#fff;}
+    .feature-card:hover .feature-icon{background:rgba(255,255,255,.2);}
+    .feature-num{font-size:36px;font-weight:800;color:#e8e8e8;line-height:1;margin-bottom:4px;}
+    .feature-icon{width:56px;height:56px;background:#e8f5f3;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;color:var(--primary);font-size:22px;transition:background .25s,color .25s;}
+    .feature-card h4{font-size:14px;font-weight:700;margin-bottom:7px;transition:color .25s;}
+    .feature-card p{font-size:12.5px;color:var(--text-light);line-height:1.6;transition:color .25s;}
+
+    /* SECTION TAG / HEADER */
+    .section-tag{display:inline-flex;align-items:center;gap:6px;color:var(--accent);font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;}
+    .section-header{text-align:center;margin-bottom:50px;}
+    .section-header h2{font-size:34px;font-weight:800;margin-bottom:12px;}
+    .section-header h2 span{color:var(--primary);}
+    .section-header p{color:var(--text-light);font-size:14px;max-width:540px;margin:0 auto;}
+
+    /* SEJARAH */
+    .sejarah{padding:90px 0;background:#fff;}
+    .sejarah-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+    .sejarah-img{border-radius:14px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.12);}
+    .sejarah-img img{width:100%;height:360px;object-fit:cover;}
+    .sejarah-content h2{font-size:34px;font-weight:800;margin-bottom:18px;}
+    .sejarah-content h2 span{color:var(--primary);}
+    .sejarah-content p{font-size:14px;color:var(--text-light);line-height:1.8;margin-bottom:16px;}
+    .timeline{margin-top:24px;}
+    .tl-item{display:flex;gap:16px;margin-bottom:20px;}
+    .tl-dot{width:14px;height:14px;background:var(--accent);border-radius:50%;margin-top:4px;flex-shrink:0;position:relative;}
+    .tl-dot::after{content:'';position:absolute;top:14px;left:6px;width:2px;height:100%;background:#e0e0e0;}
+    .tl-item:last-child .tl-dot::after{display:none;}
+    .tl-year{font-size:13px;font-weight:700;color:var(--primary);margin-bottom:3px;}
+    .tl-text{font-size:13px;color:var(--text-light);line-height:1.6;}
+
+    /* ABOUT */
+    .about{padding:90px 0;background:var(--light-bg);}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+    .about-images{position:relative;height:440px;}
+    .about-images img{border-radius:12px;object-fit:cover;}
+    .about-img-main{width:62%;height:300px;position:absolute;top:0;left:0;}
+    .about-img-sec{width:55%;height:240px;position:absolute;bottom:0;right:0;border:5px solid #fff;box-shadow:0 8px 24px rgba(0,0,0,.12);}
+    .about-badge{position:absolute;bottom:60px;left:0;background:var(--accent);color:#fff;border-radius:10px;padding:14px 18px;text-align:center;box-shadow:0 6px 20px rgba(245,166,35,.35);}
+    .about-badge .yrs{font-size:26px;font-weight:800;line-height:1;}
+    .about-badge .lbl{font-size:11px;line-height:1.4;}
+    .about-content h2{font-size:34px;font-weight:800;line-height:1.25;margin-bottom:18px;}
+    .about-content h2 span{color:var(--primary);}
+    .about-content>p{font-size:14px;color:var(--text-light);line-height:1.8;margin-bottom:24px;}
+    .ab-svc{display:flex;gap:14px;margin-bottom:18px;}
+    .ab-svc-icon{width:44px;height:44px;flex-shrink:0;background:#e8f5f3;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--primary);font-size:18px;}
+    .ab-svc-text h5{font-size:14px;font-weight:700;margin-bottom:4px;}
+    .ab-svc-text p{font-size:13px;color:var(--text-light);line-height:1.6;margin:0;}
+    .about-bottom{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-top:10px;}
+    .ph-cta{display:flex;align-items:center;gap:10px;}
+    .ph-cta-icon{width:46px;height:46px;background:var(--primary);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;}
+    .ph-cta-text .lb{font-size:11px;color:var(--text-light);}
+    .ph-cta-text .nb{font-size:15px;font-weight:700;color:var(--text);}
+
+    /* VISI MISI */
+    .visi-misi{padding:90px 0;background:#fff;}
+    .vm-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;}
+    .vm-card{background:var(--light-bg);border-radius:14px;padding:36px;box-shadow:0 4px 18px rgba(0,0,0,.07);}
+    .vm-icon{width:60px;height:60px;background:#e8f5f3;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--primary);font-size:26px;margin-bottom:18px;}
+    .vm-card h3{font-size:20px;font-weight:800;margin-bottom:14px;}
+    .vm-card h3 span{color:var(--primary);}
+    .vm-card p,.vm-card ul{font-size:14px;color:var(--text-light);line-height:1.8;}
+    .vm-card ul{padding-left:18px;}
+    .vm-card ul li{margin-bottom:8px;}
+
+    /* STATS */
+    .stats{background:var(--primary);padding:60px 0;position:relative;overflow:hidden;}
+    .stats::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1400&q=80') center/cover;opacity:.08;}
+    .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);position:relative;}
+    .stat-item{text-align:center;padding:20px;border-right:1px solid rgba(255,255,255,.18);}
+    .stat-item:last-child{border-right:none;}
+    .stat-icon{width:64px;height:64px;border:2px solid var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;color:var(--accent);font-size:26px;}
+    .stat-num{font-size:42px;font-weight:800;color:#fff;line-height:1;}
+    .stat-label{color:rgba(255,255,255,.75);font-size:14px;margin-top:6px;}
+
+    /* COURSES */
+    .courses{padding:90px 0;background:var(--light-bg);}
+    .courses-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+    .course-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 18px rgba(0,0,0,.07);transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column;}
+    .course-card:hover{transform:translateY(-6px);box-shadow:0 12px 32px rgba(0,0,0,.12);}
+    .c-img{position:relative;height:200px;overflow:hidden;}
+    .c-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s;}
+    .course-card:hover .c-img img{transform:scale(1.06);}
+    .c-badge{position:absolute;top:14px;left:14px;background:var(--accent);color:#fff;font-size:11px;font-weight:600;padding:4px 12px;border-radius:20px;}
+    .c-meta{position:absolute;bottom:14px;left:14px;display:flex;gap:8px;}
+    .mpill{background:rgba(255,255,255,.9);padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600;color:var(--primary);display:flex;align-items:center;gap:4px;}
+    .c-body{padding:22px;flex:1;display:flex;flex-direction:column;}
+    .c-body h4{font-size:16px;font-weight:700;margin-bottom:8px;}
+    .c-body p{font-size:13px;color:var(--text-light);line-height:1.6;margin-bottom:14px;flex:1;}
+    .c-footer{display:flex;align-items:center;justify-content:space-between;padding-top:14px;border-top:1px solid var(--border);margin-top:auto;}
+    .stars{color:var(--accent);font-size:12px;}
+    .stars span{color:var(--text-light);font-size:12px;margin-left:4px;}
+    .btn-sm{background:var(--primary);color:#fff;padding:7px 18px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;transition:background .2s;}
+    .btn-sm:hover{background:var(--primary-dark);}
+
+    /* TEACHERS */
+    .teachers{padding:90px 0;background:#fff;}
+
+    /* Kepsek */
+    .kepsek-wrap{display:flex;justify-content:center;margin-bottom:52px;}
+    .kepsek-card{background:var(--light-bg);border-radius:16px;overflow:hidden;width:250px;box-shadow:0 4px 20px rgba(0,0,0,.09);transition:transform .25s,box-shadow .25s;}
+    .kepsek-card:hover{transform:translateY(-6px);box-shadow:0 14px 36px rgba(0,0,0,.13);}
+    .kepsek-img{width:100%;height:260px;overflow:hidden;position:relative;}
+    .kepsek-img img{width:100%;height:100%;object-fit:cover;object-position:top;}
+    .kepsek-ribbon{position:absolute;bottom:0;left:0;right:0;background:var(--primary);color:#fff;text-align:center;padding:8px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;}
+    .kepsek-info{padding:18px;text-align:center;}
+    .kepsek-info h4{font-size:16px;font-weight:800;margin-bottom:4px;}
+    .kepsek-info p{font-size:12px;color:var(--primary);font-weight:600;}
+    .kepsek-social{display:flex;justify-content:center;gap:10px;margin-top:10px;}
+    .kepsek-social a{width:30px;height:30px;border-radius:50%;background:#e8f5f3;display:flex;align-items:center;justify-content:center;color:var(--primary);font-size:13px;transition:background .2s,color .2s;text-decoration:none;}
+    .kepsek-social a:hover{background:var(--primary);color:#fff;}
+
+    /* Wakasek */
+    .sub-ttl{font-size:20px;font-weight:800;text-align:center;margin-bottom:26px;}
+    .sub-ttl span{color:var(--primary);}
+    .wks-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-bottom:48px;}
+    .wks-card{background:var(--light-bg);border-radius:12px;overflow:hidden;text-align:center;box-shadow:0 4px 14px rgba(0,0,0,.07);transition:transform .25s,box-shadow .25s;}
+    .wks-card:hover{transform:translateY(-5px);box-shadow:0 10px 28px rgba(0,0,0,.11);}
+    .wks-img{height:200px;overflow:hidden;position:relative;}
+    .wks-img img{width:100%;height:100%;object-fit:cover;object-position:top;}
+    .wks-badge{position:absolute;bottom:0;left:0;right:0;background:var(--accent);color:#fff;font-size:10px;font-weight:700;padding:5px;text-align:center;letter-spacing:.4px;}
+    .wks-info{padding:14px;}
+    .wks-info h4{font-size:14px;font-weight:700;margin-bottom:3px;}
+    .wks-info p{font-size:12px;color:var(--primary);font-weight:500;}
+
+    /* Toggle semua guru */
+    .guru-toggle-btn{display:flex;align-items:center;justify-content:space-between;background:var(--primary);border-radius:12px;padding:18px 28px;cursor:pointer;user-select:none;border:none;width:100%;transition:background .2s;}
+    .guru-toggle-btn:hover{background:var(--primary-dark);}
+    .guru-toggle-btn h3{font-size:16px;font-weight:700;color:#fff;display:flex;align-items:center;gap:10px;}
+    .guru-arrow{width:36px;height:36px;background:rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;transition:transform .3s;flex-shrink:0;}
+    .guru-arrow.open{transform:rotate(180deg);}
+    .guru-body{display:none;padding:36px 0 0;}
+    .guru-body.open{display:block;}
+    .tg{margin-bottom:42px;}
+    .tg-label{display:inline-flex;align-items:center;gap:8px;background:#e8f5f3;color:var(--primary);font-size:13px;font-weight:700;padding:6px 18px 6px 14px;margin-bottom:20px;border-left:4px solid var(--primary);border-radius:0 20px 20px 0;}
+    .tg-row{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;}
+    .tc{background:var(--light-bg);border-radius:10px;overflow:hidden;text-align:center;box-shadow:0 3px 10px rgba(0,0,0,.07);transition:transform .2s,box-shadow .2s;}
+    .tc:hover{transform:translateY(-4px);box-shadow:0 8px 22px rgba(0,0,0,.11);}
+    .tc-img{height:150px;overflow:hidden;position:relative;}
+    .tc-img img{width:100%;height:100%;object-fit:cover;object-position:top;}
+    .tc-soc{position:absolute;bottom:0;left:0;right:0;background:var(--primary);display:flex;justify-content:center;gap:10px;padding:8px;transform:translateY(100%);transition:transform .25s;}
+    .tc:hover .tc-soc{transform:translateY(0);}
+    .tc-soc a{color:#fff;font-size:12px;text-decoration:none;transition:color .2s;}
+    .tc-soc a:hover{color:var(--accent);}
+    .tc-info{padding:12px 8px;}
+    .tc-info h5{font-size:12.5px;font-weight:700;margin-bottom:3px;line-height:1.3;}
+    .tc-info p{font-size:11px;color:var(--primary);font-weight:500;}
+
+    /* TESTIMONIALS */
+    .testimonials{padding:90px 0;background:var(--light-bg);}
+    .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+    .testi-card{background:#fff;border-radius:12px;padding:28px;box-shadow:0 4px 18px rgba(0,0,0,.06);position:relative;}
+    .testi-card::before{content:'\201C';font-size:80px;color:var(--primary);opacity:.12;position:absolute;top:10px;right:20px;line-height:1;font-family:Georgia,serif;}
+    .t-ava{width:56px;height:56px;border-radius:50%;object-fit:cover;margin-bottom:14px;}
+    .t-stars{color:var(--accent);font-size:13px;margin-bottom:10px;}
+    .t-text{font-size:13px;color:var(--text-light);line-height:1.7;margin-bottom:18px;}
+    .t-name{font-size:14px;font-weight:700;}
+    .t-role{font-size:12px;color:var(--primary);}
+
+    /* GALLERY */
+    .gallery{padding:90px 0;background:#fff;}
+    .gal-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(2,180px);gap:14px;}
+    .gal-item{border-radius:10px;overflow:hidden;position:relative;cursor:pointer;}
+    .gal-item:first-child{grid-column:span 2;grid-row:span 2;}
+    .gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s;}
+    .gal-item:hover img{transform:scale(1.08);}
+    .gal-ov{position:absolute;inset:0;background:rgba(26,122,110,.6);display:flex;align-items:center;justify-content:center;color:#fff;font-size:26px;opacity:0;transition:opacity .3s;}
+    .gal-item:hover .gal-ov{opacity:1;}
+
+    /* NEWS */
+    .news{padding:90px 0;background:var(--light-bg);}
+    .news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+    .news-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 18px rgba(0,0,0,.06);transition:transform .25s;display:flex;flex-direction:column;}
+    .news-card:hover{transform:translateY(-4px);}
+    .n-img{height:200px;overflow:hidden;flex-shrink:0;}
+    .n-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s;}
+    .news-card:hover .n-img img{transform:scale(1.06);}
+    .n-body{padding:20px;flex:1;display:flex;flex-direction:column;}
+    .n-cat{display:inline-block;background:#e8f5f3;color:var(--primary);font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;align-self:flex-start;}
+    .n-date{font-size:12px;color:var(--text-light);margin-bottom:8px;display:flex;align-items:center;gap:5px;}
+    .n-body h4{font-size:15px;font-weight:700;margin-bottom:8px;line-height:1.4;}
+    .n-body p{font-size:13px;color:var(--text-light);line-height:1.6;margin-bottom:14px;flex:1;}
+    .n-link{color:var(--primary);font-size:13px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:5px;margin-top:auto;transition:color .2s;background:none;border:none;cursor:pointer;padding:0;font-family:inherit;}
+    .n-link:hover{color:var(--accent);}
+
+    /* MODAL ARTIKEL */
+    .art-modal{display:none;position:fixed;inset:0;z-index:9999;align-items:flex-start;justify-content:center;padding:20px;overflow-y:auto;}
+    .art-modal.open{display:flex;}
+    .art-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);}
+    .art-box{position:relative;background:#fff;border-radius:16px;max-width:780px;width:100%;margin:auto;box-shadow:0 24px 60px rgba(0,0,0,.3);overflow:hidden;}
+    .art-hero-img{height:260px;overflow:hidden;}
+    .art-hero-img img{width:100%;height:100%;object-fit:cover;}
+    .art-close{position:absolute;top:14px;right:14px;width:36px;height:36px;background:rgba(0,0,0,.5);border:none;border-radius:50%;color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;z-index:10;}
+    .art-close:hover{background:var(--accent);}
+    .art-content{padding:32px;}
+    .art-cat{display:inline-block;background:#e8f5f3;color:var(--primary);font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:10px;}
+    .art-title{font-size:22px;font-weight:800;margin-bottom:10px;line-height:1.3;color:var(--text);}
+    .art-meta{font-size:12px;color:var(--text-light);margin-bottom:20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+    .art-meta i{color:var(--primary);}
+    .art-body{font-size:14px;color:var(--text-light);line-height:1.9;}
+    .art-body p{margin-bottom:16px;}
+    .art-body h5{font-size:16px;font-weight:700;color:var(--text);margin:24px 0 10px;}
+    .art-body ul{padding-left:20px;margin-bottom:16px;}
+    .art-body ul li{margin-bottom:6px;}
+
+    /* CTA */
+    .cta-banner{background:linear-gradient(120deg,var(--primary),#15a88d);padding:70px 0;text-align:center;position:relative;overflow:hidden;}
+    .cta-banner::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1200&q=80') center/cover;opacity:.07;}
+    .cta-banner .container{position:relative;}
+    .cta-banner h2{font-size:34px;font-weight:800;color:#fff;margin-bottom:14px;}
+    .cta-banner p{color:rgba(255,255,255,.8);font-size:15px;margin-bottom:30px;max-width:500px;margin-left:auto;margin-right:auto;}
+    .btn-wa{background:#25D366;color:#fff;padding:14px 36px;border-radius:30px;font-weight:700;font-size:15px;text-decoration:none;display:inline-flex;align-items:center;gap:10px;transition:transform .2s,box-shadow .2s,background .2s;}
+    .btn-wa:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.2);background:#1ebe5c;}
+
+    /* FOOTER */
+    footer{background:#0d2d28;color:rgba(255,255,255,.75);padding:70px 0 0;}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;}
+    .footer-brand>p{font-size:13px;line-height:1.8;margin:16px 0 20px;}
+    .f-logo{display:flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:16px;}
+    .f-logo-wrap{width:46px;height:46px;border-radius:50%;overflow:hidden;border:2px solid rgba(255,255,255,.25);flex-shrink:0;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.1);}
+    .f-logo-wrap img{width:100%;height:100%;object-fit:cover;}
+    .f-logo-txt .fs{font-size:9px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.6px;}
+    .f-logo-txt .fn{font-size:16px;font-weight:800;color:#fff;line-height:1;}
+    .f-logo-txt .fn span{color:var(--accent);}
+    .f-logo-txt .fp{font-size:9px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.6px;}
+    .f-socials{display:flex;gap:10px;}
+    .f-socials a{width:36px;height:36px;background:rgba(255,255,255,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;transition:background .2s;text-decoration:none;}
+    .f-socials a:hover{background:var(--accent);}
+    .footer-col h5{color:#fff;font-size:15px;font-weight:700;margin-bottom:20px;position:relative;padding-bottom:10px;}
+    .footer-col h5::after{content:'';position:absolute;bottom:0;left:0;width:32px;height:2px;background:var(--accent);}
+    .f-links{list-style:none;}
+    .f-links li{margin-bottom:10px;}
+    .f-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:13px;display:flex;align-items:center;gap:6px;transition:color .2s;}
+    .f-links a:hover{color:var(--accent);}
+    .f-links a i{font-size:10px;color:var(--accent);}
+    .f-contact{display:flex;gap:12px;margin-bottom:14px;}
+    .f-contact i{color:var(--accent);font-size:16px;margin-top:2px;flex-shrink:0;}
+    .f-contact span,.f-contact a{font-size:13px;line-height:1.6;color:rgba(255,255,255,.7);}
+    .f-contact a{text-decoration:none;transition:color .2s;}
+    .f-contact a:hover{color:var(--accent);}
+    .footer-bottom{margin-top:50px;border-top:1px solid rgba(255,255,255,.08);padding:20px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+    .footer-bottom p{font-size:13px;}
+    .f-bot-links{display:flex;gap:20px;}
+    .f-bot-links a{color:rgba(255,255,255,.6);font-size:13px;text-decoration:none;transition:color .2s;}
+    .f-bot-links a:hover{color:var(--accent);}
+
+    /* SCROLL TOP */
+    .scroll-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--accent);color:#fff;border:none;border-radius:50%;font-size:18px;cursor:pointer;box-shadow:0 4px 16px rgba(245,166,35,.4);display:none;align-items:center;justify-content:center;transition:transform .2s,background .2s;z-index:998;}
+    .scroll-top.visible{display:flex;}
+    .scroll-top:hover{background:var(--primary);transform:translateY(-2px);}
+
+    /* RESPONSIVE */
+    @media(max-width:1024px){
+      .features-grid{grid-template-columns:repeat(2,1fr);}
+      .about-grid,.sejarah-inner{grid-template-columns:1fr;}
+      .about-images{height:320px;}
+      .stats-grid{grid-template-columns:repeat(2,1fr);}
+      .courses-grid{grid-template-columns:repeat(2,1fr);}
+      .wks-grid{grid-template-columns:repeat(2,1fr);}
+      .tg-row{grid-template-columns:repeat(3,1fr);}
+      .gal-grid{grid-template-columns:repeat(3,1fr);grid-template-rows:auto;}
+      .gal-item:first-child{grid-column:span 1;grid-row:span 1;}
+      .news-grid{grid-template-columns:repeat(2,1fr);}
+      .footer-grid{grid-template-columns:1fr 1fr;}
+      .vm-grid{grid-template-columns:1fr;}
+    }
+    @media(max-width:768px){
+      .topbar .container{flex-direction:column;gap:6px;}
+      .nav-links{display:none;}
+      .hamburger{display:block;}
+      .hero h1{font-size:32px;}
+      .hero-aside{display:none;}
+      .features-grid{grid-template-columns:1fr 1fr;}
+      .courses-grid,.testi-grid,.news-grid{grid-template-columns:1fr;}
+      .gal-grid{grid-template-columns:repeat(2,1fr);grid-template-rows:auto;}
+      .footer-grid{grid-template-columns:1fr;}
+      .footer-bottom{flex-direction:column;text-align:center;}
+      .art-hero-img{height:160px;}
+      .art-title{font-size:18px;}
+    }
+    @media(max-width:480px){
+      .features-grid{grid-template-columns:1fr;}
+      .stats-grid{grid-template-columns:1fr 1fr;}
+      .wks-grid{grid-template-columns:1fr 1fr;}
+      .tg-row{grid-template-columns:repeat(2,1fr);}
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-left">
+      <div class="socials">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+      <span>Ikuti kami di media sosial</span>
+    </div>
+    <div class="topbar-right">
+      <span><i class="fas fa-map-marker-alt"></i> Jl. Palasari No. 1, Subang, Jawa Barat</span>
+      <!-- <span><i class="fas fa-envelope"></i> <a href="mailto:smkimp@gmail.com">smkimp@gmail.com</a></span> -->
+      <span style="color: white;">
+          <i class="fas fa-envelope"></i> 
+          <a href="mailto:smkimp@gmail.com" style="color: white;">smkimp@gmail.com</a>
+      </span>
+      <span><i class="fas fa-phone"></i> +62 260 123 4567</span>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="container">
+    <a class="logo" href="#">
+      <div class="logo-img-wrap">
+        <img src="assets/logo.png" alt="Logo SMK Insan Madani Palasari"/>
+      </div>
+      <div class="logo-text">
+        <div class="ls">Sekolah Menengah Kejuruan</div>
+        <div class="lm"><span>Insan Madani</span> Palasari</div>
+        <!-- <span class="lp">Palasari</span> -->
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#" class="active">Beranda <i class="fas fa-chevron-down arr"></i></a>
+        <div class="dropdown"><a href="#">Halaman Utama</a><a href="#sejarah">Profil Sekolah</a></div>
+      </li>
+      <li><a href="#jurusan">Jurusan <i class="fas fa-chevron-down arr"></i></a>
+        <div class="dropdown"><a href="#">Teknik Komputer Jaringan</a><a href="#">Akuntansi & Keuangan</a><a href="#">Otomatisasi Perkantoran</a></div>
+      </li>
+      <li><a href="#sejarah">Akademik <i class="fas fa-chevron-down arr"></i></a>
+        <div class="dropdown"><a href="#sejarah">Sejarah Sekolah</a><a href="#visi-misi">Visi & Misi</a></div>
+      </li>
+      <li><a href="#guru">Guru</a></li>
+      <li><a href="#berita">Blog</a></li>
+      <li><a href="#kontak">Kontak</a></li>
+    </ul>
+    <!--
+      ============================================================
+      TOMBOL PPDB — Nomor WhatsApp: +62 895-4129-03832
+      Ganti nomor di href jika berubah.
+      ============================================================
+    -->
+    <a class="btn-apply" href="https://wa.me/6289541290383?text=Halo%2C%20saya%20ingin%20bertanya%20tentang%20PPDB%20SMK%20Insan%20Madani%20Palasari." target="_blank" rel="noopener">
+      <i class="fab fa-whatsapp"></i> PPDB
+    </a>
+    <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#">Beranda</a></li>
+      <li><a href="#jurusan">Jurusan</a></li>
+      <li><a href="#sejarah">Akademik</a></li>
+      <li><a href="#guru">Guru</a></li>
+      <li><a href="#berita">Blog</a></li>
+      <li><a href="#kontak">Kontak</a></li>
+      <li><a href="https://wa.me/6289541290383?text=Halo%2C%20saya%20ingin%20bertanya%20tentang%20PPDB%20SMK%20Insan%20Madani%20Palasari." target="_blank" style="color:#25D366;font-weight:700;"><i class="fab fa-whatsapp"></i> Daftar PPDB (WhatsApp)</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-aside">
+    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=900&q=80" alt="Siswa SMK"/>
+  </div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-tag"><i class="fas fa-graduation-cap"></i> SELAMAT DATANG DI SMK INSAN MADANI!</div>
+      <h1>Raih Masa Depan<br>Yang <span>Gemilang</span><br>Bersama Kami</h1>
+      <p>SMK Insan Madani Palasari hadir untuk mencetak generasi unggul, berakhlak mulia, dan siap bersaing di dunia kerja maupun wirausaha dengan pendidikan berkualitas tinggi.</p>
+      <div class="hero-btns">
+        <a href="#sejarah" class="btn-primary"><i class="fas fa-arrow-right"></i> Lebih Lanjut</a>
+        <!--
+          ============================================================
+          TOMBOL DAFTAR SEKARANG → WhatsApp
+          Ganti nomor jika berubah: https://wa.me/62XXXXXXXXXX
+          ============================================================
+        -->
+        <a href="https://wa.me/6289541290383?text=Halo%2C%20saya%20ingin%20mendaftar%20di%20SMK%20Insan%20Madani%20Palasari." target="_blank" rel="noopener" class="btn-outline">
+          <i class="fab fa-whatsapp"></i> Daftar Sekarang
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+  <div class="container">
+    <div class="features-grid">
+      <div class="feature-card"><div class="feature-num">01</div><div class="feature-icon"><i class="fas fa-award"></i></div><h4>Beasiswa Berprestasi</h4><p>Tersedia program beasiswa untuk siswa berprestasi dan kurang mampu guna mendukung pendidikan berkualitas.</p></div>
+      <div class="feature-card"><div class="feature-num">02</div><div class="feature-icon"><i class="fas fa-chalkboard-teacher"></i></div><h4>Guru Berpengalaman</h4><p>Tenaga pengajar bersertifikat dan berpengalaman di bidangnya untuk hasil belajar yang optimal.</p></div>
+      <div class="feature-card"><div class="feature-num">03</div><div class="feature-icon"><i class="fas fa-flask"></i></div><h4>Fasilitas Laboratorium</h4><p>Laboratorium komputer, sains, dan praktik kejuruan lengkap untuk pembelajaran berbasis praktik.</p></div>
+      <div class="feature-card"><div class="feature-num">04</div><div class="feature-icon"><i class="fas fa-tags"></i></div><h4>Biaya Terjangkau</h4><p>Pendidikan bermutu tinggi dengan biaya yang terjangkau dan fleksibel sesuai kemampuan orang tua.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SEJARAH -->
+<section class="sejarah" id="sejarah">
+  <div class="container">
+    <div class="sejarah-inner">
+      <div class="sejarah-img">
+        <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80" alt="Gedung SMK Insan Madani Palasari"/>
+      </div>
+      <div class="sejarah-content">
+        <div class="section-tag"><i class="fas fa-history"></i> TENTANG KAMI</div>
+        <h2>Sejarah <span>SMK Insan Madani</span><br>Palasari</h2>
+        <p>SMK Insan Madani Palasari berdiri atas prakarsa tokoh masyarakat dan ulama setempat yang memiliki kepedulian tinggi terhadap dunia pendidikan. Sekolah ini didirikan dengan semangat melahirkan generasi yang tidak hanya cerdas secara intelektual, tetapi juga berakhlakul karimah.</p>
+        <p>Sejak awal berdirinya, SMK Insan Madani Palasari berkomitmen menyelenggarakan pendidikan kejuruan yang relevan dengan kebutuhan industri dan masyarakat, sehingga lulusannya siap memasuki dunia kerja dan mampu berwirausaha secara mandiri.</p>
+        <div class="timeline">
+          <div class="tl-item"><div class="tl-dot"></div><div><div class="tl-year">2005 — Pendirian Sekolah</div><div class="tl-text">SMK Insan Madani Palasari resmi berdiri dan membuka jurusan pertama: Akuntansi dan Administrasi Perkantoran.</div></div></div>
+          <div class="tl-item"><div class="tl-dot"></div><div><div class="tl-year">2010 — Akreditasi A</div><div class="tl-text">Sekolah meraih akreditasi A dari BAN-SM dan membuka jurusan Teknik Komputer Jaringan.</div></div></div>
+          <div class="tl-item"><div class="tl-dot"></div><div><div class="tl-year">2016 — Gedung Baru</div><div class="tl-text">Gedung baru selesai dibangun, menambah kapasitas kelas dan laboratorium modern.</div></div></div>
+          <div class="tl-item"><div class="tl-dot"></div><div><div class="tl-year">2023 — Era Digital</div><div class="tl-text">Implementasi pembelajaran digital dan kemitraan dengan perusahaan teknologi nasional.</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-images">
+        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=80" alt="Belajar" class="about-img-main"/>
+        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&q=80" alt="Diskusi" class="about-img-sec"/>
+        <div class="about-badge"><div class="yrs">19+</div><div class="lbl">Tahun<br>Mengabdi</div></div>
+      </div>
+      <div class="about-content">
+        <div class="section-tag"><i class="fas fa-star"></i> TENTANG KAMI</div>
+        <h2>Sistem Pendidikan Kami <span>Menginspirasi</span> Anda.</h2>
+        <p>Kami berkomitmen menghadirkan lingkungan belajar yang kondusif, inovatif, dan berbasis nilai-nilai islami, sehingga siswa tidak hanya unggul secara akademis tetapi juga memiliki karakter yang kuat dan siap menghadapi tantangan global.</p>
+        <div style="margin-bottom:28px;">
+          <div class="ab-svc"><div class="ab-svc-icon"><i class="fas fa-cogs"></i></div><div class="ab-svc-text"><h5>Layanan Kejuruan</h5><p>Program kejuruan dirancang sesuai kebutuhan industri, dilengkapi praktik kerja lapangan dan sertifikasi kompetensi.</p></div></div>
+          <div class="ab-svc"><div class="ab-svc-icon"><i class="fas fa-globe"></i></div><div class="ab-svc-text"><h5>Kemitraan Industri</h5><p>Jaringan luas dengan perusahaan dan instansi untuk PKL dan penempatan kerja bagi lulusan.</p></div></div>
+        </div>
+        <div class="about-bottom">
+          <a href="#jurusan" class="btn-primary"><i class="fas fa-arrow-right"></i> Temukan Lebih</a>
+          <div class="ph-cta"><div class="ph-cta-icon"><i class="fas fa-phone"></i></div><div class="ph-cta-text"><div class="lb">Hubungi Kami</div><div class="nb">+62 260 123 4567</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISI MISI -->
+<section class="visi-misi" id="visi-misi">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag" style="justify-content:center"><i class="fas fa-eye"></i> VISI & MISI</div>
+      <h2>Visi & Misi <span>SMK Insan Madani</span></h2>
+      <p>Landasan dan arah pengembangan SMK Insan Madani Palasari menuju pendidikan yang unggul dan berakhlak.</p>
+    </div>
+    <div class="vm-grid">
+      <div class="vm-card"><div class="vm-icon"><i class="fas fa-eye"></i></div><h3>Visi <span>Sekolah</span></h3><p>"Terwujudnya SMK Insan Madani Palasari sebagai lembaga pendidikan kejuruan yang unggul, berkarakter islami, dan menghasilkan lulusan yang kompeten, mandiri, serta berdaya saing tinggi di tingkat nasional maupun global."</p></div>
+      <div class="vm-card"><div class="vm-icon"><i class="fas fa-bullseye"></i></div><h3>Misi <span>Sekolah</span></h3><ul><li>Menyelenggarakan pendidikan kejuruan berbasis kompetensi dan teknologi terkini yang relevan dengan kebutuhan industri.</li><li>Membentuk karakter peserta didik yang berakhlak mulia, disiplin, dan bertanggung jawab.</li><li>Mengembangkan potensi akademis dan non-akademis siswa melalui pembelajaran yang inovatif.</li><li>Menjalin kemitraan erat dengan dunia usaha dan industri (DU/DI) guna meningkatkan relevansi lulusan.</li><li>Menciptakan lingkungan sekolah yang bersih, aman, nyaman, dan kondusif untuk proses belajar mengajar.</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item"><div class="stat-icon"><i class="fas fa-book-open"></i></div><div class="stat-num" data-target="24">0</div><div class="stat-label">+ Total Program Belajar</div></div>
+      <div class="stat-item"><div class="stat-icon"><i class="fas fa-user-graduate"></i></div><div class="stat-num" data-target="1800">0</div><div class="stat-label">+ Total Siswa Aktif</div></div>
+      <div class="stat-item"><div class="stat-icon"><i class="fas fa-chalkboard-teacher"></i></div><div class="stat-num" data-target="62">0</div><div class="stat-label">+ Guru & Staf Terlatih</div></div>
+      <div class="stat-item"><div class="stat-icon"><i class="fas fa-trophy"></i></div><div class="stat-num" data-target="45">0</div><div class="stat-label">+ Penghargaan Diraih</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- JURUSAN -->
+<section class="courses" id="jurusan">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag" style="justify-content:center"><i class="fas fa-graduation-cap"></i> PROGRAM KEAHLIAN</div>
+      <h2>Pilih <span>Jurusan</span> Terbaik Anda</h2>
+      <p>Program keahlian kejuruan yang relevan dan siap mengantarkan Anda menuju karir impian.</p>
+    </div>
+    <div class="courses-grid">
+      <div class="course-card"><div class="c-img"><img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&q=80" alt="TKJ"/><span class="c-badge">Unggulan</span><div class="c-meta"><span class="mpill"><i class="fas fa-book"></i> 12 Modul</span><span class="mpill"><i class="fas fa-users"></i> 240 Siswa</span></div></div><div class="c-body"><h4>Teknik Komputer dan Jaringan</h4><p>Pelajari instalasi jaringan, konfigurasi server, troubleshooting hardware & software, serta keamanan siber.</p><div class="c-footer"><div class="stars">★★★★★ <span>(4.9)</span></div><a href="#" class="btn-sm">Detail</a></div></div></div>
+      <div class="course-card"><div class="c-img"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80" alt="Akuntansi"/><span class="c-badge">Populer</span><div class="c-meta"><span class="mpill"><i class="fas fa-book"></i> 10 Modul</span><span class="mpill"><i class="fas fa-users"></i> 210 Siswa</span></div></div><div class="c-body"><h4>Akuntansi dan Keuangan</h4><p>Kuasai pembukuan, laporan keuangan, perpajakan, dan aplikasi akuntansi modern yang dibutuhkan dunia usaha.</p><div class="c-footer"><div class="stars">★★★★★ <span>(4.8)</span></div><a href="#" class="btn-sm">Detail</a></div></div></div>
+      <div class="course-card"><div class="c-img"><img src="https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?w=600&q=80" alt="OTKP"/><span class="c-badge">Terbaru</span><div class="c-meta"><span class="mpill"><i class="fas fa-book"></i> 9 Modul</span><span class="mpill"><i class="fas fa-users"></i> 185 Siswa</span></div></div><div class="c-body"><h4>Otomatisasi Tata Kelola Perkantoran</h4><p>Pelajari manajemen kantor, kesekretarisan, korespondensi, dan otomatisasi perkantoran berbasis teknologi.</p><div class="c-footer"><div class="stars">★★★★☆ <span>(4.7)</span></div><a href="#" class="btn-sm">Detail</a></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TENAGA PENGAJAR -->
+<section class="teachers" id="guru">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag" style="justify-content:center"><i class="fas fa-users"></i> TENAGA PENGAJAR</div>
+      <h2>Kenali <span>Guru</span> Kami</h2>
+      <p>Tim pendidik berpengalaman dan berdedikasi yang siap membimbing siswa menuju prestasi terbaik.</p>
+    </div>
+
+    <!-- KEPALA SEKOLAH -->
+    <div class="kepsek-wrap">
+      <div class="kepsek-card">
+        <div class="kepsek-img">
+          <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=400&q=80" alt="Kepala Sekolah"/>
+          <div class="kepsek-ribbon">Kepala Sekolah</div>
+        </div>
+        <div class="kepsek-info">
+          <h4>Ahmad Fauzi, S.Pd., M.M.</h4>
+          <p>Kepala SMK Insan Madani Palasari</p>
+          <div class="kepsek-social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WAKASEK -->
+    <p class="sub-ttl">Wakil <span>Kepala Sekolah</span></p>
+    <div class="wks-grid">
+      <div class="wks-card"><div class="wks-img"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80" alt="Waka Kurikulum"/><div class="wks-badge">Waka Kurikulum</div></div><div class="wks-info"><h4>Hendra Kusuma, S.Pd., M.Pd.</h4><p>Wakasek Kurikulum</p></div></div>
+      <div class="wks-card"><div class="wks-img"><img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&q=80" alt="Waka Kesiswaan"/><div class="wks-badge">Waka Kesiswaan</div></div><div class="wks-info"><h4>Siti Rahma, S.Pd., M.Pd.</h4><p>Wakasek Kesiswaan</p></div></div>
+      <div class="wks-card"><div class="wks-img"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80" alt="Waka Sarana"/><div class="wks-badge">Waka Sarana & Prasarana</div></div><div class="wks-info"><h4>Budi Santoso, S.T., M.T.</h4><p>Wakasek Sarana & Prasarana</p></div></div>
+      <div class="wks-card"><div class="wks-img"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80" alt="Waka Humas"/><div class="wks-badge">Waka Humas & Industri</div></div><div class="wks-info"><h4>Dewi Lestari, S.E., M.M.</h4><p>Wakasek Humas & Industri</p></div></div>
+    </div>
+
+    <!-- TOGGLE SEMUA GURU -->
+    <button class="guru-toggle-btn" onclick="toggleGuru()" id="guruBtn">
+      <h3><i class="fas fa-users"></i> Lihat Semua Guru & Staf Pengajar</h3>
+      <div class="guru-arrow" id="guruArrow"><i class="fas fa-chevron-down"></i></div>
+    </button>
+
+    <div class="guru-body" id="guruBody">
+
+      <!-- TKJ -->
+      <div class="tg">
+        <div class="tg-label"><i class="fas fa-laptop-code"></i> Jurusan Teknik Komputer & Jaringan (TKJ)</div>
+        <div class="tg-row">
+          <div class="tc"><div class="tc-img"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&q=80" alt=""/><div class="tc-soc"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fas fa-envelope"></i></a></div></div><div class="tc-info"><h5>Reza Pratama, S.Kom.</h5><p>Kaprodi TKJ</p></div></div>
+          <div class="tc"><div class="tc-img"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&q=80" alt=""/><div class="tc-soc"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fas fa-envelope"></i></a></div></div><div class="tc-info"><h5>Nadia Fitri, S.Kom.</h5><p>Sekprodi TKJ</p></div></div>
+          <div class="tc"><div class="tc-img"><img src="https://images.unsplash.com/photo-1556157382-97eda2f9e2bf?w=300&q=80" alt=""/><div class="tc-soc"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fas fa-envelope"></i></a></div></div><div class="tc-info"><h5>Andi Saputra, S.T.</h5><p>Guru Jaringan Komputer</p></div></div>
+          <div class="tc"><div class="tc-img"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&q=80" alt=""/><div class="tc-soc"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fas fa-envelope"></i></a></div></div><div class="tc-info"><h5>Faisal Rahman, S.Kom.</h5><p>Guru Keamanan Siber</p></div></div>
+          <div class="tc"><div class="tc-img"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&q=80" alt=""/><div class="tc-soc"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fas fa-envelope"></i></a></div></div><div class="tc-info"><h5>Rina Sari, S.Pd.</h5><p>Guru Pemrograman Dasar</p></div></div>
+        </div>
+      </div>
+
+      <!-- Akuntansi -->
+      <div class="tg">
+        <div class="tg-label"><i class="fas fa-calculator"></i> Jurusan Akuntansi & Keuangan</div>
+        <div class="tg-row">
+          <div class="tc"><div class="tc-img"><img src="https://images.unsplash.com/photo-1573497019236-17f8177b81e8?w=300&q=80" alt=""/><div class="tc-soc"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fas fa-envelope"></i></a></div></div><div class="tc-info"><h5>Yuniarti, S.E., M.Ak.</h5><p>Kaprodi Akuntansi</p></div></div>
+          <div class="tc"><div class="tc-img"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&q=80" alt=""/><div class="tc-soc"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fas fa-envelope"></i></a></div></div><div class="tc-info"><h5>Wahyu Hidayat, S.E.</h5><p>Sekprodi Akuntansi</p></div></div>
+          <div class="tc"><div class="tc-img"><img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=300&q=80" alt=""/><div class="tc-soc"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fas fa-envelope"></i></a></div></div><div class="tc-info"><h5>Maya Anggraini, S.E.</h5><p>Guru Akuntansi Dasar</p></div></div>
+          <div class="tc"><div class="tc-img"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&q=80" alt=""/><div class="tc-soc"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fas fa-envelope"></i></a></div></div><div class="tc-info"><h5>Dian Purnama, S.E., M.M.</h5><p>Guru Perpajakan</p></div></div>
+          <div class="tc"><div class="tc-img"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&q=80" alt=""/><div class="tc-soc"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fas fa-envelope"></i></a></div></div><div class="tc-info"><h5>Sari Wulandari, S.Pd.</h5><p>Guru Komputer Akuntansi</p></div></div>
+        </div>
+      </div>
+
+      <!-- OTKP -->
+      <div class="tg">
+        <div class="tg-label"><i class="fas fa-briefcase"></i> Jurusan Otomatisasi Tata Kelola Perkantoran (OTKP)</div>
+        <div class="tg-row">
+          <div class="tc"><div class="tc-img"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&q=80" alt=""/><div class="tc-soc"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fas fa-envelope"></i></a></div></div><div class="tc-info"><h5>Nurul Hidayah, S.Pd., M.Pd.</h5><p>Kaprodi OTKP</p></div></div>
+          <div class="tc"><div class="tc-img"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&q=80" alt=""/><div class="tc-soc"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fas fa-envelope"></i></a></div></div><div class="tc-info"><h5>Agus Setiawan, S.Pd.</h5><p>Sekprodi OTKP</p></div></div>
+          <div class="tc"><div class="tc-img"><img src="https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?w=300&q=80" alt=""/><div class="tc-soc"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fas fa-envelope"></i></a></div></div><div class="tc-info"><h5>Lina Marlina, S.Pd.</h5><p>Guru Kearsipan</p></div></div>
+          <div class="tc"><div class="tc-img"><img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=300&q=80" alt=""/><div class="tc-soc"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fas fa-envelope"></i></a></div></div><div class="tc-info"><h5>Rizky Ramadhan, S.Sos.</h5><p>Guru Komunikasi Bisnis</p></div></div>
+          <div class="tc"><div class="tc-img"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&q=80" alt=""/><div class="tc-soc"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fas fa-envelope"></i></a></div></div><div class="tc-info"><h5>Wita Permata, S.Pd.</h5><p>Guru Otomatisasi Kantor</p></div></div>
+        </div>
+      </div>
+
+      <!-- Mapel Umum -->
+      <div class="tg">
+        <div class="tg-label"><i class="fas fa-book"></i> Guru Mata Pelajaran Umum</div>
+        <div class="tg-row">
+          <div class="tc"><div class="tc-img"><img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=300&q=80" alt=""/><div class="tc-soc"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fas fa-envelope"></i></a></div></div><div class="tc-info"><h5>Iwan Kurniawan, S.Pd.</h5><p>Guru Matematika</p></div></div>
+          <div class="tc"><div class="tc-img"><img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=300&q=80" alt=""/><div class="tc-soc"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fas fa-envelope"></i></a></div></div><div class="tc-info"><h5>Ratna Dewi, S.Pd.</h5><p>Guru Bahasa Indonesia</p></div></div>
+          <div class="tc"><div class="tc-img"><img src="https://images.unsplash.com/photo-1522556189639-b150ed9c4330?w=300&q=80" alt=""/><div class="tc-soc"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fas fa-envelope"></i></a></div></div><div class="tc-info"><h5>Arif Budiarto, S.Pd.</h5><p>Guru Bahasa Inggris</p></div></div>
+          <div class="tc"><div class="tc-img"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&q=80" alt=""/><div class="tc-soc"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fas fa-envelope"></i></a></div></div><div class="tc-info"><h5>Fatimah Az-Zahra, S.Ag.</h5><p>Guru PAI</p></div></div>
+          <div class="tc"><div class="tc-img"><img src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?w=300&q=80" alt=""/><div class="tc-soc"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fas fa-envelope"></i></a></div></div><div class="tc-info"><h5>Dani Wijaya, S.Pd.</h5><p>Guru PJOK</p></div></div>
+        </div>
+      </div>
+
+    </div><!-- /guru-body -->
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag" style="justify-content:center"><i class="fas fa-comment-dots"></i> TESTIMONI</div>
+      <h2>Apa Kata <span>Siswa & Orang Tua</span> Kami</h2>
+      <p>Cerita sukses dan kepuasan dari mereka yang telah merasakan manfaat pendidikan di SMK Insan Madani.</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&q=80" alt="" class="t-ava"/><div class="t-stars">★★★★★</div><p class="t-text">SMK Insan Madani benar-benar mengubah hidup saya. Guru-guru yang sabar dan fasilitas lengkap membuat saya semakin semangat belajar. Sekarang saya sudah diterima kerja di perusahaan IT terkemuka.</p><div class="t-name">Rina Lestari</div><div class="t-role">Alumni TKJ 2022</div></div>
+      <div class="testi-card"><img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=200&q=80" alt="" class="t-ava"/><div class="t-stars">★★★★★</div><p class="t-text">Sebagai orang tua, saya sangat puas dengan perkembangan anak saya sejak masuk SMK Insan Madani. Bukan hanya pintar, anak saya juga semakin berakhlak baik dan mandiri. Terima kasih!</p><div class="t-name">Bapak Suryadi</div><div class="t-role">Orang Tua Siswa Akuntansi</div></div>
+      <div class="testi-card"><img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=200&q=80" alt="" class="t-ava"/><div class="t-stars">★★★★★</div><p class="t-text">Program PKL di perusahaan mitra sangat membantu saya mendapatkan pengalaman nyata. Saya tidak hanya belajar teori, tapi juga praktik langsung yang sangat berharga untuk karir saya.</p><div class="t-name">Dimas Prasetyo</div><div class="t-role">Siswa OTKP Kelas XII</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag" style="justify-content:center"><i class="fas fa-images"></i> GALERI</div>
+      <h2>Galeri <span>Kegiatan</span> Kami</h2>
+      <p>Dokumentasi kegiatan belajar, ekstrakurikuler, dan berbagai event seru di SMK Insan Madani Palasari.</p>
+    </div>
+    <div class="gal-grid">
+      <div class="gal-item"><img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&q=80" alt=""/><div class="gal-ov"><i class="fas fa-search-plus"></i></div></div>
+      <div class="gal-item"><img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=500&q=80" alt=""/><div class="gal-ov"><i class="fas fa-search-plus"></i></div></div>
+      <div class="gal-item"><img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=500&q=80" alt=""/><div class="gal-ov"><i class="fas fa-search-plus"></i></div></div>
+      <div class="gal-item"><img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=500&q=80" alt=""/><div class="gal-ov"><i class="fas fa-search-plus"></i></div></div>
+      <div class="gal-item"><img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=500&q=80" alt=""/><div class="gal-ov"><i class="fas fa-search-plus"></i></div></div>
+      <div class="gal-item"><img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=500&q=80" alt=""/><div class="gal-ov"><i class="fas fa-search-plus"></i></div></div>
+      <div class="gal-item"><img src="https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?w=500&q=80" alt=""/><div class="gal-ov"><i class="fas fa-search-plus"></i></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BERITA -->
+<section class="news" id="berita">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag" style="justify-content:center"><i class="fas fa-newspaper"></i> BERITA TERKINI</div>
+      <h2>Berita & <span>Pengumuman</span> Sekolah</h2>
+      <p>Informasi terbaru seputar kegiatan, prestasi, dan pengumuman dari SMK Insan Madani Palasari.</p>
+    </div>
+    <div class="news-grid">
+      <div class="news-card">
+        <div class="n-img"><img src="https://images.unsplash.com/photo-1560439514-4e9645039924?w=600&q=80" alt=""/></div>
+        <div class="n-body">
+          <span class="n-cat">Prestasi</span>
+          <div class="n-date"><i class="fas fa-calendar-alt"></i> 15 Maret 2025</div>
+          <h4>Siswa SMK Insan Madani Raih Juara 1 LKS Tingkat Provinsi Jawa Barat</h4>
+          <p>Tim kami berhasil meraih juara pertama pada Lomba Kompetensi Siswa bidang IT Network Systems Administration...</p>
+          <button class="n-link" onclick="openArticle('a1')">Baca Selengkapnya <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+      <div class="news-card">
+        <div class="n-img"><img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&q=80" alt=""/></div>
+        <div class="n-body">
+          <span class="n-cat">Pengumuman</span>
+          <div class="n-date"><i class="fas fa-calendar-alt"></i> 8 Maret 2025</div>
+          <h4>PPDB Tahun Ajaran 2025/2026 Resmi Dibuka — Catat Jadwal & Syaratnya!</h4>
+          <p>SMK Insan Madani Palasari membuka pendaftaran peserta didik baru mulai 1 April 2025. Simak info lengkap di sini...</p>
+          <button class="n-link" onclick="openArticle('a2')">Baca Selengkapnya <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+      <div class="news-card">
+        <div class="n-img"><img src="https://images.unsplash.com/photo-1544531585-9847b68c8c86?w=600&q=80" alt=""/></div>
+        <div class="n-body">
+          <span class="n-cat">Kegiatan</span>
+          <div class="n-date"><i class="fas fa-calendar-alt"></i> 28 Februari 2025</div>
+          <h4>Workshop Digital Marketing Bersama Mitra Industri untuk Siswa Kelas XI</h4>
+          <p>SMK Insan Madani mengadakan workshop digital marketing menghadirkan praktisi berpengalaman dari industri...</p>
+          <button class="n-link" onclick="openArticle('a3')">Baca Selengkapnya <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL ARTIKEL -->
+<div class="art-modal" id="artModal">
+  <div class="art-backdrop" onclick="closeArticle()"></div>
+  <div class="art-box">
+    <div class="art-hero-img"><img id="mImg" src="" alt=""/></div>
+    <button class="art-close" onclick="closeArticle()"><i class="fas fa-times"></i></button>
+    <div class="art-content">
+      <span class="art-cat" id="mCat"></span>
+      <h2 class="art-title" id="mTitle"></h2>
+      <div class="art-meta" id="mMeta"></div>
+      <div class="art-body" id="mBody"></div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA / PPDB -->
+<section class="cta-banner" id="ppdb">
+  <div class="container">
+    <h2>Mulai Perjalanan Belajar Anda Bersama Kami!</h2>
+    <p>Bergabunglah dengan lebih dari 1.800 siswa yang telah merasakan manfaat pendidikan berkualitas di SMK Insan Madani Palasari.</p>
+    <!--
+      ============================================================
+      TOMBOL DAFTAR SEKARANG → WhatsApp
+      Nomor: +62 895-4129-03832
+      Ganti nomor di href jika berubah.
+      ============================================================
+    -->
+    <a class="btn-wa" href="https://wa.me/6289541290383?text=Halo%20Kak%2C%20saya%20ingin%20mendaftar%20PPDB%20SMK%20Insan%20Madani%20Palasari%20Tahun%20Ajaran%202025%2F2026.%20Boleh%20info%20lebih%20lanjut%3F" target="_blank" rel="noopener">
+      <i class="fab fa-whatsapp" style="font-size:20px;"></i> Daftar Sekarang via WhatsApp
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="kontak">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand footer-col">
+        <a class="f-logo" href="#">
+          <!--
+            ============================================================
+            LOGO FOOTER — Ganti src dengan logo resmi sekolah.
+            ============================================================
+          -->
+          <div class="f-logo-wrap">
+            <img src="https://placehold.co/100x100/1a7a6e/ffffff?text=IM" alt="Logo SMK Insan Madani Palasari"/>
+          </div>
+          <div class="f-logo-txt">
+            <div class="fs">SMK</div>
+            <div class="fn"><span>Insan</span> Madani</div>
+            <div class="fp">Palasari</div>
+          </div>
+        </a>
+        <p>SMK Insan Madani Palasari hadir untuk mencetak generasi unggul, berakhlak mulia, dan siap bersaing di dunia kerja maupun wirausaha dengan pendidikan kejuruan berkualitas tinggi.</p>
+        <div class="f-socials">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Tautan Cepat</h5>
+        <ul class="f-links">
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Beranda</a></li>
+          <li><a href="#sejarah"><i class="fas fa-chevron-right"></i> Sejarah</a></li>
+          <li><a href="#visi-misi"><i class="fas fa-chevron-right"></i> Visi & Misi</a></li>
+          <li><a href="#jurusan"><i class="fas fa-chevron-right"></i> Jurusan</a></li>
+          <li><a href="#guru"><i class="fas fa-chevron-right"></i> Guru</a></li>
+          <li><a href="#ppdb"><i class="fas fa-chevron-right"></i> PPDB</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Program Keahlian</h5>
+        <ul class="f-links">
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Teknik Komputer Jaringan</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Akuntansi & Keuangan</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Otomatisasi Perkantoran</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Ekstrakurikuler</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Bimbingan Konseling</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Kontak Kami</h5>
+        <div class="f-contact"><i class="fas fa-map-marker-alt"></i><span>Jl. Palasari No. 1, Palasari, Subang, Jawa Barat 41281</span></div>
+        <div class="f-contact"><i class="fas fa-phone"></i><span>+62 260 123 4567</span></div>
+        <div class="f-contact"><i class="fas fa-envelope"></i><span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0a63646c654a7967616364796b64676b6e6b64632479696224636e">[email&#160;protected]</a></span></div>
+        <div class="f-contact"><i class="fab fa-whatsapp"></i>
+          <!-- Ganti nomor WA jika berubah -->
+          <a href="https://wa.me/6289541290383" target="_blank">+62 895-4129-03832</a>
+        </div>
+        <div class="f-contact"><i class="fas fa-clock"></i><span>Senin – Jumat: 07.00 – 15.30 WIB</span></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 SMK Insan Madani Palasari. Seluruh hak dilindungi.</p>
+      <div class="f-bot-links">
+        <a href="#">Kebijakan Privasi</a>
+        <a href="#">Syarat & Ketentuan</a>
+        <a href="#">Peta Situs</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <i class="fas fa-chevron-up"></i>
+</button>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+/* ── DATA ARTIKEL ── */
+const arts = {
+  a1:{
+    img:'https://images.unsplash.com/photo-1560439514-4e9645039924?w=900&q=80',
+    cat:'Prestasi',
+    title:'Siswa SMK Insan Madani Raih Juara 1 LKS Tingkat Provinsi Jawa Barat',
+    meta:'<span><i class="fas fa-calendar-alt"></i> 15 Maret 2025</span><span><i class="fas fa-user"></i> Tim Humas</span><span><i class="fas fa-tag"></i> Prestasi</span>',
+    body:`<p>SMK Insan Madani Palasari kembali menorehkan prestasi membanggakan. Pada ajang Lomba Kompetensi Siswa (LKS) Tingkat Provinsi Jawa Barat yang diselenggarakan di Bandung pada 10–13 Maret 2025, tim kami berhasil meraih <strong>Juara 1</strong> pada bidang lomba IT Network Systems Administration.</p>
+    <h5>Perjuangan Panjang Menuju Podium</h5>
+    <p>Para siswa telah berlatih intensif selama lebih dari tiga bulan di bawah bimbingan Bapak Reza Pratama, S.Kom. Seleksi dimulai dari tingkat sekolah, kemudian berlanjut ke tingkat Kabupaten Subang sebelum mewakili daerah di tingkat provinsi.</p>
+    <p>"Kami tidak menyangka bisa menang, karena pesaingnya dari sekolah-sekolah besar. Tapi kami percaya pada latihan yang sudah kami jalani," ujar Ahmad Rizkiansyah, siswa peraih juara kelas XI TKJ 1.</p>
+    <h5>Dukungan Penuh Sekolah</h5>
+    <p>Kepala SMK Insan Madani Palasari, Bapak Ahmad Fauzi, S.Pd., M.M., menyampaikan rasa bangga dan terima kasih kepada seluruh pihak yang mendukung. Sebagai juara 1 provinsi, tim SMK Insan Madani berhak mewakili Jawa Barat dalam LKS Tingkat Nasional yang akan diselenggarakan pada Juni 2025. Semoga dapat mengharumkan nama Jawa Barat!</p>`
+  },
+  a2:{
+    img:'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=900&q=80',
+    cat:'Pengumuman',
+    title:'PPDB Tahun Ajaran 2025/2026 Resmi Dibuka — Catat Jadwal & Syaratnya!',
+    meta:'<span><i class="fas fa-calendar-alt"></i> 8 Maret 2025</span><span><i class="fas fa-user"></i> Admin PPDB</span><span><i class="fas fa-tag"></i> Pengumuman</span>',
+    body:`<p>SMK Insan Madani Palasari dengan bangga mengumumkan bahwa Penerimaan Peserta Didik Baru (PPDB) untuk Tahun Ajaran 2025/2026 resmi dibuka mulai <strong>1 April 2025</strong>. Kami membuka pendaftaran untuk tiga program keahlian: Teknik Komputer Jaringan (TKJ), Akuntansi & Keuangan, dan Otomatisasi Tata Kelola Perkantoran (OTKP).</p>
+    <h5>Jadwal PPDB 2025/2026</h5>
+    <p><strong>Pendaftaran Online & Offline:</strong> 1 April – 30 Juni 2025<br/><strong>Seleksi Berkas:</strong> 1 – 7 Juli 2025<br/><strong>Pengumuman Hasil:</strong> 10 Juli 2025<br/><strong>Daftar Ulang:</strong> 11 – 20 Juli 2025<br/><strong>MPLS:</strong> 14 Juli 2025</p>
+    <h5>Persyaratan Pendaftaran</h5>
+    <ul><li>Fotocopy Ijazah / SKL SMP/MTs (dilegalisir)</li><li>Fotocopy SHUN / Rapor kelas 7–9 (dilegalisir)</li><li>Pas foto terbaru 3×4, 4 lembar, latar merah</li><li>Fotocopy KTP orang tua dan Kartu Keluarga</li><li>Fotocopy NISN</li></ul>
+    <h5>Cara Mendaftar</h5>
+    <p>Pendaftaran dapat dilakukan secara <strong>online</strong> melalui WhatsApp resmi sekolah atau <strong>langsung</strong> ke kantor Tata Usaha SMK Insan Madani Palasari pada hari kerja (Senin–Jumat, 07.00–15.30 WIB). Untuk info lebih lanjut, hubungi kami di nomor yang tertera.</p>`
+  },
+  a3:{
+    img:'https://images.unsplash.com/photo-1544531585-9847b68c8c86?w=900&q=80',
+    cat:'Kegiatan',
+    title:'Workshop Digital Marketing Bersama Mitra Industri untuk Siswa Kelas XI',
+    meta:'<span><i class="fas fa-calendar-alt"></i> 28 Februari 2025</span><span><i class="fas fa-user"></i> Tim Humas</span><span><i class="fas fa-tag"></i> Kegiatan</span>',
+    body:`<p>SMK Insan Madani Palasari sukses menyelenggarakan <strong>Workshop Digital Marketing</strong> pada Jumat, 28 Februari 2025. Kegiatan ini diikuti oleh seluruh siswa kelas XI dari semua jurusan dan berlangsung di Aula SMK Insan Madani Palasari.</p>
+    <h5>Narasumber Berpengalaman dari Industri</h5>
+    <p>Workshop menghadirkan dua narasumber berpengalaman: Kak Dinda Ayu (Digital Marketing Specialist) dan Mas Fahri Rizki (Content Creator & SEO Expert). Materi mencakup strategi konten media sosial, SEO, hingga personal branding di era digital.</p>
+    <h5>Antusias dan Interaktif</h5>
+    <p>Kegiatan berlangsung dari 08.00–15.00 WIB. Siswa sangat antusias mengikuti sesi tanya jawab dan praktik membuat konten media sosial. "Ternyata digital marketing itu luas sekali, bukan cuma posting di Instagram. Saya jadi termotivasi untuk belajar lebih serius," kata Siska, siswi kelas XI Akuntansi.</p>
+    <p>Kegiatan ini merupakan bagian dari program kemitraan industri yang rutin diselenggarakan setiap semester guna mempersiapkan siswa menghadapi tantangan dunia kerja nyata.</p>`
+  }
+};
+
+function openArticle(id){
+  const a=arts[id];
+  document.getElementById('mImg').src=a.img;
+  document.getElementById('mCat').textContent=a.cat;
+  document.getElementById('mTitle').textContent=a.title;
+  document.getElementById('mMeta').innerHTML=a.meta;
+  document.getElementById('mBody').innerHTML=a.body;
+  document.getElementById('artModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeArticle(){
+  document.getElementById('artModal').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeArticle();});
+
+function toggleGuru(){
+  document.getElementById('guruBody').classList.toggle('open');
+  document.getElementById('guruArrow').classList.toggle('open');
+}
+function toggleMenu(){
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+/* Scroll top */
+const stBtn=document.getElementById('scrollTop');
+window.addEventListener('scroll',()=>{stBtn.classList.toggle('visible',scrollY>400);});
+
+/* Counter */
+function animCount(el){
+  const t=+el.dataset.target; let c=0;
+  const s=Math.ceil(t/60);
+  const iv=setInterval(()=>{c+=s;if(c>=t){c=t;clearInterval(iv);}el.textContent=c;},28);
+}
+new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('[data-target]').forEach(animCount);}});}).observe(document.querySelector('.stats'));
