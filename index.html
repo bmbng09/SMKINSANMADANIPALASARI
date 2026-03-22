@@ -68,21 +68,20 @@
     .mobile-menu ul li a{display:block;padding:10px 0;border-bottom:1px solid var(--border);color:var(--text);text-decoration:none;font-size:14px;}
 
     /* HERO */
-    .hero{background:linear-gradient(120deg,#0d5c52,#1a7a6e 40%,#1f9080);min-height:520px;position:relative;overflow:hidden;display:flex;align-items:center;}
-    .hero::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1400&q=80') center/cover;opacity:.18;}
-    .hero-content{position:relative;z-index:2;max-width:560px;padding:70px 0;}
+    .hero{min-height:520px;position:relative;overflow:hidden;display:flex;align-items:center;}
+    .hero::before{content:'';position:absolute;inset:0;background:url('https://file.data.kemendikdasmen.go.id/sekolahkita/69/6995/69954358-2.jpg') center/cover no-repeat;z-index:0;}
+    .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(13,92,82,.82) 0%,rgba(13,92,82,.55) 38%,rgba(13,92,82,.10) 65%,transparent 100%);z-index:1;}
+    .hero-content{position:relative;z-index:2;max-width:540px;padding:80px 0;}
     .hero-tag{display:inline-flex;align-items:center;gap:6px;color:var(--accent);font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;}
     .hero h1{font-size:46px;font-weight:800;color:#fff;line-height:1.15;margin-bottom:18px;}
     .hero h1 span{color:var(--accent);}
-    .hero p{color:rgba(255,255,255,.82);font-size:15px;line-height:1.7;margin-bottom:32px;max-width:480px;}
+    .hero p{color:rgba(255,255,255,.85);font-size:15px;line-height:1.7;margin-bottom:32px;max-width:460px;}
     .hero-btns{display:flex;gap:14px;flex-wrap:wrap;}
     .btn-primary{background:var(--accent);color:#fff;padding:13px 30px;border-radius:30px;text-decoration:none;font-weight:600;font-size:14px;display:inline-flex;align-items:center;gap:6px;transition:background .2s,transform .15s;}
     .btn-primary:hover{background:var(--accent-dark);transform:translateY(-2px);}
     .btn-outline{background:transparent;color:#fff;padding:12px 28px;border-radius:30px;text-decoration:none;font-weight:600;font-size:14px;border:2px solid rgba(255,255,255,.55);display:inline-flex;align-items:center;gap:6px;transition:border-color .2s,background .2s,transform .15s;}
     .btn-outline:hover{border-color:#fff;background:rgba(255,255,255,.1);transform:translateY(-2px);}
-    .hero-aside{position:absolute;right:0;top:0;bottom:0;width:44%;z-index:1;overflow:hidden;}
-    .hero-aside img{width:100%;height:100%;object-fit:cover;opacity:.65;}
-    .hero-aside::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#1a7a6e,transparent 60%);z-index:2;}
+    .hero-aside{display:none;}
 
     /* FEATURES */
     .features{background:#fff;}
@@ -156,7 +155,7 @@
 
     /* STATS */
     .stats{background:var(--primary);padding:60px 0;position:relative;overflow:hidden;}
-    .stats::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1400&q=80') center/cover;opacity:.08;}
+    .stats::before{content:'';position:absolute;inset:0;background:url('https://lh3.googleusercontent.com/gps-cs-s/AHVAwepnqjowyconcvoGGbjKpaxw8IMyAAd-K3x2ycKq6GhFYCK2TPjjD3oz-Wfs9loFbzV_ar5NM-6QB6fgml0J0y_LV1moH7UbFNvfLrTQqWtqZ7H0URZfRsBMDUOiyz1Xqwj33hr3=s1360-w1360-h1020-rw') center/cover;opacity:.08;}
     .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);position:relative;}
     .stat-item{text-align:center;padding:20px;border-right:1px solid rgba(255,255,255,.18);}
     .stat-item:last-child{border-right:none;}
@@ -392,7 +391,7 @@
       <span>Ikuti kami di media sosial</span>
     </div>
     <div class="topbar-right">
-      <span><i class="fas fa-map-marker-alt"></i> Jl. Palasari No. 1, Subang, Jawa Barat</span>
+      <span><i class="fas fa-map-marker-alt"></i> JL. PANDAWA RT. 001 RW. 004 PALASARI, Kec. Legok, Kab. Tangerang, Prov. Banten</span>
       <!-- <span><i class="fas fa-envelope"></i> <a href="mailto:smkimp@gmail.com">smkimp@gmail.com</a></span> -->
       <span style="color: white;">
           <i class="fas fa-envelope"></i> 
@@ -457,7 +456,7 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-aside">
-    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=900&q=80" alt="Siswa SMK"/>
+    <img src="https://lh3.googleusercontent.com/gps-cs-s/AHVAweo29LK7yxGdeoMMlaxQ3ZYc5fVP61VMC2UG7AxP88_pqYJkIEUEIHTSJzQaLZU6zQy7L1iLKdAd4nlr9wUO28xYSn-lg1wuNEHGwv4HMB87xWUDJVE2weNLTElbQ6986B2pIzxI=s1360-w1360-h1020-rw" alt="Siswa SMK"/>
   </div>
   <div class="container">
     <div class="hero-content">
@@ -497,7 +496,7 @@
   <div class="container">
     <div class="sejarah-inner">
       <div class="sejarah-img">
-        <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80" alt="Gedung SMK Insan Madani Palasari"/>
+        <img src="https://file.data.kemendikdasmen.go.id/sekolahkita/69/6995/69954358-2.jpg" alt="Gedung SMK Insan Madani Palasari"/>
       </div>
       <div class="sejarah-content">
         <div class="section-tag"><i class="fas fa-history"></i> TENTANG KAMI</div>
@@ -520,8 +519,8 @@
   <div class="container">
     <div class="about-grid">
       <div class="about-images">
-        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=80" alt="Belajar" class="about-img-main"/>
-        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&q=80" alt="Diskusi" class="about-img-sec"/>
+        <img src="https://lh3.googleusercontent.com/gps-cs-s/AHVAweo1IagRJHGqV-zGCHAEma4FDrl78BFYI7JpXbMvioUdkyCr_eD0YzzKwiDvfoPpowqG9ZOk1XogH6gIw5O_D8Rtes_pscKVdKkk5_tY1LhDNXZ29u89b_Fvywu-SipHocN_CXtlYA=s1360-w1360-h1020-rw" alt="Belajar" class="about-img-main"/>
+        <img src="https://lh3.googleusercontent.com/gps-cs-s/AHVAweq4k_W4CYMaGJFaI3l5U2tguBT94Hc_O6AAm3vV_bLn4IgYwOWzBUj8HS0YJWLHrFi3IwqNRKQPSMYaXD6jxpTPYEd8BUBkerabIqGlYz4crEWrvO8xkn6CRjTXTf_a_IhhxZDQ5g=s1360-w1360-h1020-rw" alt="Diskusi" class="about-img-sec"/>
         <div class="about-badge"><div class="yrs">19+</div><div class="lbl">Tahun<br>Mengabdi</div></div>
       </div>
       <div class="about-content">
@@ -560,10 +559,10 @@
 <section class="stats">
   <div class="container">
     <div class="stats-grid">
-      <div class="stat-item"><div class="stat-icon"><i class="fas fa-book-open"></i></div><div class="stat-num" data-target="24">0</div><div class="stat-label">+ Total Program Belajar</div></div>
-      <div class="stat-item"><div class="stat-icon"><i class="fas fa-user-graduate"></i></div><div class="stat-num" data-target="1800">0</div><div class="stat-label">+ Total Siswa Aktif</div></div>
-      <div class="stat-item"><div class="stat-icon"><i class="fas fa-chalkboard-teacher"></i></div><div class="stat-num" data-target="62">0</div><div class="stat-label">+ Guru & Staf Terlatih</div></div>
-      <div class="stat-item"><div class="stat-icon"><i class="fas fa-trophy"></i></div><div class="stat-num" data-target="45">0</div><div class="stat-label">+ Penghargaan Diraih</div></div>
+      <div class="stat-item"><div class="stat-icon"><i class="fas fa-book-open"></i></div><div class="stat-num" data-target="24">100</div><div class="stat-label">+ Total Program Belajar</div></div>
+      <div class="stat-item"><div class="stat-icon"><i class="fas fa-user-graduate"></i></div><div class="stat-num" data-target="1800">110</div><div class="stat-label">+ Total Siswa Aktif</div></div>
+      <div class="stat-item"><div class="stat-icon"><i class="fas fa-chalkboard-teacher"></i></div><div class="stat-num" data-target="62">30</div><div class="stat-label">+ Guru & Staf Terlatih</div></div>
+      <div class="stat-item"><div class="stat-icon"><i class="fas fa-trophy"></i></div><div class="stat-num" data-target="45">50</div><div class="stat-label">+ Penghargaan Diraih</div></div>
     </div>
   </div>
 </section>
@@ -597,7 +596,7 @@
     <div class="kepsek-wrap">
       <div class="kepsek-card">
         <div class="kepsek-img">
-          <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=400&q=80" alt="Kepala Sekolah"/>
+          <img src="https://lh3.googleusercontent.com/gps-cs-s/AHVAwepXH1ekfldmg770xu68sEOpwlhJPt5uRs-RZBVdoqo69QAeYh7yVh9SGbA0ybYjVa3A2WtCiksFVer6pNAbjMfbbvRN4Nws8YI4ZIohldXMKf-wV_IVD-ASKKaVYlEKTaNjJVI2=s1360-w1360-h1020-rw" alt="Kepala Sekolah"/>
           <div class="kepsek-ribbon">Kepala Sekolah</div>
         </div>
         <div class="kepsek-info">
