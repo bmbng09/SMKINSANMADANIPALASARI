@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ekstrakurikuler — SMK Insan Madani Palasari</title>
+  <link rel="icon" href="assets/logo copy.png" type="image/png"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root{--primary:#1a7a6e;--primary-dark:#135f56;--accent:#f5a623;--accent-dark:#e09010;--text:#333;--text-light:#666;--light-bg:#f8f9fa;--border:#e5e5e5;}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Poppins',sans-serif;color:var(--text);overflow-x:hidden;}
+    .container{max-width:1180px;margin:0 auto;padding:0 20px;}
+
+    /* NAVBAR */
+    .navbar{background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.08);position:sticky;top:0;z-index:999;}
+    .navbar .container{display:flex;align-items:center;justify-content:space-between;padding:10px 20px;}
+    .logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+    .logo-img-wrap{flex-shrink:0;display:flex;align-items:center;}
+    .logo-img-wrap img{height:40px;width:auto;display:block;object-fit:contain;}
+    .logo-text{line-height:1.18;}
+    .logo-text .ls{font-size:9px;font-weight:600;color:var(--text-light);letter-spacing:.4px;}
+    .logo-text .lm{font-size:15px;font-weight:800;color:var(--primary);line-height:1.05;}
+    .logo-text .lm span{color:var(--accent);}
+    .nav-back{display:inline-flex;align-items:center;gap:8px;color:var(--primary);text-decoration:none;font-weight:600;font-size:14px;padding:8px 16px;border:2px solid var(--primary);border-radius:30px;transition:background .2s,color .2s;}
+    .nav-back:hover{background:var(--primary);color:#fff;}
+
+    /* HERO PAGE */
+    .page-hero{background:linear-gradient(120deg,#0d5c52,#1a7a6e);padding:70px 0;position:relative;overflow:hidden;}
+    .page-hero::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1400&q=80') center/cover;opacity:.15;}
+    .page-hero .container{position:relative;}
+    .page-hero-tag{display:inline-flex;align-items:center;gap:6px;color:var(--accent);font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;}
+    .page-hero h1{font-size:42px;font-weight:800;color:#fff;line-height:1.2;margin-bottom:14px;}
+    .page-hero h1 span{color:var(--accent);}
+    .page-hero p{color:rgba(255,255,255,.82);font-size:15px;line-height:1.7;max-width:560px;}
+
+    /* BREADCRUMB */
+    .breadcrumb{background:#fff;border-bottom:1px solid var(--border);padding:12px 0;}
+    .breadcrumb .container{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-light);}
+    .breadcrumb a{color:var(--primary);text-decoration:none;}
+    .breadcrumb a:hover{text-decoration:underline;}
+    .breadcrumb i{font-size:10px;}
+
+    /* STATS BAR */
+    .stats-bar{background:var(--accent);padding:20px 0;}
+    .stats-bar .container{display:flex;justify-content:center;gap:60px;flex-wrap:wrap;}
+    .sbar-item{text-align:center;color:#fff;}
+    .sbar-num{font-size:28px;font-weight:800;line-height:1;}
+    .sbar-lbl{font-size:12px;opacity:.9;}
+
+    /* SECTION */
+    .section{padding:80px 0;}
+    .section-tag{display:inline-flex;align-items:center;gap:6px;color:var(--accent);font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;}
+    .section-header{margin-bottom:50px;}
+    .section-header h2{font-size:32px;font-weight:800;margin-bottom:10px;}
+    .section-header h2 span{color:var(--primary);}
+    .section-header p{color:var(--text-light);font-size:14px;max-width:580px;}
+
+    /* EKSKUL GRID */
+    .ekskul-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+    .ekskul-card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 4px 18px rgba(0,0,0,.07);transition:transform .25s,box-shadow .25s;cursor:pointer;}
+    .ekskul-card:hover{transform:translateY(-6px);box-shadow:0 14px 36px rgba(0,0,0,.12);}
+    .ek-img{height:200px;overflow:hidden;position:relative;}
+    .ek-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s;}
+    .ekskul-card:hover .ek-img img{transform:scale(1.06);}
+    .ek-cat{position:absolute;top:14px;left:14px;background:var(--primary);color:#fff;font-size:11px;font-weight:600;padding:4px 12px;border-radius:20px;}
+    .ek-body{padding:22px;}
+    .ek-icon{width:48px;height:48px;background:#e8f5f3;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--primary);font-size:20px;margin-bottom:14px;}
+    .ek-body h4{font-size:16px;font-weight:700;margin-bottom:8px;}
+    .ek-body p{font-size:13px;color:var(--text-light);line-height:1.6;margin-bottom:14px;}
+    .ek-footer{display:flex;align-items:center;justify-content:space-between;padding-top:14px;border-top:1px solid var(--border);}
+    .ek-meta{font-size:12px;color:var(--text-light);display:flex;align-items:center;gap:5px;}
+    .ek-meta i{color:var(--accent);}
+    .btn-detail{background:var(--primary);color:#fff;padding:7px 18px;border-radius:20px;font-size:12px;font-weight:600;border:none;cursor:pointer;font-family:inherit;transition:background .2s;}
+    .btn-detail:hover{background:var(--primary-dark);}
+
+    /* MODAL */
+    .art-modal{display:none;position:fixed;inset:0;z-index:9999;align-items:flex-start;justify-content:center;padding:20px;overflow-y:auto;}
+    .art-modal.open{display:flex;}
+    .art-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);}
+    .art-box{position:relative;background:#fff;border-radius:16px;max-width:780px;width:100%;margin:auto;box-shadow:0 24px 60px rgba(0,0,0,.3);overflow:hidden;}
+    .art-hero-img{height:280px;overflow:hidden;}
+    .art-hero-img img{width:100%;height:100%;object-fit:cover;}
+    .art-close{position:absolute;top:14px;right:14px;width:36px;height:36px;background:rgba(0,0,0,.5);border:none;border-radius:50%;color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;z-index:10;}
+    .art-close:hover{background:var(--accent);}
+    .art-content{padding:32px;}
+    .art-cat{display:inline-block;background:#e8f5f3;color:var(--primary);font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:10px;}
+    .art-title{font-size:22px;font-weight:800;margin-bottom:10px;line-height:1.3;color:var(--text);}
+    .art-meta{font-size:12px;color:var(--text-light);margin-bottom:20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+    .art-meta i{color:var(--primary);}
+    .art-body{font-size:14px;color:var(--text-light);line-height:1.9;}
+    .art-body p{margin-bottom:16px;}
+    .art-body h5{font-size:16px;font-weight:700;color:var(--text);margin:24px 0 10px;}
+    .art-body ul{padding-left:20px;margin-bottom:16px;}
+    .art-body ul li{margin-bottom:6px;}
+
+    /* CTA */
+    .cta-section{background:linear-gradient(120deg,var(--primary),#15a88d);padding:60px 0;text-align:center;}
+    .cta-section h2{font-size:28px;font-weight:800;color:#fff;margin-bottom:10px;}
+    .cta-section p{color:rgba(255,255,255,.82);font-size:14px;margin-bottom:24px;}
+    .btn-wa{background:#25D366;color:#fff;padding:12px 30px;border-radius:30px;font-weight:700;font-size:14px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:transform .2s,background .2s;}
+    .btn-wa:hover{transform:translateY(-2px);background:#1ebe5c;}
+    .btn-back{background:rgba(255,255,255,.2);color:#fff;padding:12px 30px;border-radius:30px;font-weight:600;font-size:14px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;margin-left:12px;transition:background .2s;}
+    .btn-back:hover{background:rgba(255,255,255,.3);}
+
+    /* FOOTER SIMPLE */
+    .footer-simple{background:#0d2d28;color:rgba(255,255,255,.6);text-align:center;padding:20px;font-size:13px;}
+    .footer-simple a{color:var(--accent);text-decoration:none;}
+
+    /* SCROLL TOP */
+    .scroll-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--accent);color:#fff;border:none;border-radius:50%;font-size:18px;cursor:pointer;box-shadow:0 4px 16px rgba(245,166,35,.4);display:none;align-items:center;justify-content:center;transition:transform .2s,background .2s;z-index:998;}
+    .scroll-top.visible{display:flex;}
+    .scroll-top:hover{background:var(--primary);}
+
+    @media(max-width:1024px){.ekskul-grid{grid-template-columns:repeat(2,1fr);}}
+    @media(max-width:640px){.ekskul-grid{grid-template-columns:1fr;}.page-hero h1{font-size:28px;}.stats-bar .container{gap:30px;}.art-hero-img{height:180px;}.art-title{font-size:18px;}}
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="container">
+    <a class="logo" href="index.html">
+      <div class="logo-img-wrap"><img src="assets/logo.png" alt="Logo SMK Insan Madani Palasari"/></div>
+      <div class="logo-text">
+        <div class="ls">Sekolah Menengah Kejuruan</div>
+        <div class="lm"><span>Insan Madani</span> Palasari</div>
+      </div>
+    </a>
+    <a class="nav-back" href="index.html"><i class="fas fa-arrow-left"></i> Kembali ke Beranda</a>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <div class="container">
+    <a href="index.html">Beranda</a>
+    <i class="fas fa-chevron-right"></i>
+    <span>Ekstrakurikuler</span>
+  </div>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-tag"><i class="fas fa-star"></i> KEGIATAN SISWA</div>
+    <h1>Ekstrakurikuler <span>SMK Insan Madani</span></h1>
+    <p>Kembangkan bakat, minat, dan potensi diri melalui berbagai kegiatan ekstrakurikuler yang aktif dan berprestasi di SMK Insan Madani Palasari.</p>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="sbar-item"><div class="sbar-num">10+</div><div class="sbar-lbl">Jenis Ekstrakurikuler</div></div>
+    <div class="sbar-item"><div class="sbar-num">300+</div><div class="sbar-lbl">Siswa Aktif</div></div>
+    <div class="sbar-item"><div class="sbar-num">25+</div><div class="sbar-lbl">Prestasi Diraih</div></div>
+    <div class="sbar-item"><div class="sbar-num">15+</div><div class="sbar-lbl">Pembina Terlatih</div></div>
+  </div>
+</div>
+
+<!-- EKSKUL WAJIB -->
+<section class="section" style="background:#fff;">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag"><i class="fas fa-check-circle"></i> WAJIB</div>
+      <h2>Ekstrakurikuler <span>Wajib</span></h2>
+      <p>Kegiatan ekstrakurikuler yang wajib diikuti oleh seluruh siswa SMK Insan Madani Palasari.</p>
+    </div>
+    <div class="ekskul-grid">
+      <div class="ekskul-card" onclick="openEkskul('pramuka')">
+        <div class="ek-img"><img src="https://images.unsplash.com/photo-1527856263669-12c3a0af2aa6?w=600&q=80" alt="Pramuka"/><span class="ek-cat">Wajib</span></div>
+        <div class="ek-body">
+          <div class="ek-icon"><i class="fas fa-campground"></i></div>
+          <h4>Pramuka</h4>
+          <p>Membentuk karakter, kedisiplinan, dan jiwa kepemimpinan siswa melalui kegiatan kepramukaan yang menyenangkan dan edukatif.</p>
+          <div class="ek-footer">
+            <span class="ek-meta"><i class="fas fa-calendar-alt"></i> Jumat, 14.00–16.00</span>
+            <button class="btn-detail">Selengkapnya</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EKSKUL PILIHAN -->
+<section class="section" style="background:var(--light-bg);">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag"><i class="fas fa-heart"></i> PILIHAN</div>
+      <h2>Ekstrakurikuler <span>Pilihan</span></h2>
+      <p>Pilih sesuai minat dan bakat Anda. Setiap siswa boleh mengikuti lebih dari satu ekstrakurikuler pilihan.</p>
+    </div>
+    <div class="ekskul-grid">
+      <div class="ekskul-card" onclick="openEkskul('futsal')">
+        <div class="ek-img"><img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&q=80" alt="Futsal"/><span class="ek-cat">Olahraga</span></div>
+        <div class="ek-body">
+          <div class="ek-icon"><i class="fas fa-futbol"></i></div>
+          <h4>Futsal</h4>
+          <p>Tim futsal sekolah yang aktif mengikuti berbagai turnamen antar sekolah tingkat kabupaten dan provinsi.</p>
+          <div class="ek-footer">
+            <span class="ek-meta"><i class="fas fa-calendar-alt"></i> Senin & Rabu, 15.30–17.00</span>
+            <button class="btn-detail">Selengkapnya</button>
+          </div>
+        </div>
+      </div>
+      <div class="ekskul-card" onclick="openEkskul('basket')">
+        <div class="ek-img"><img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=600&q=80" alt="Basket"/><span class="ek-cat">Olahraga</span></div>
+        <div class="ek-body">
+          <div class="ek-icon"><i class="fas fa-basketball-ball"></i></div>
+          <h4>Basket</h4>
+          <p>Ekstrakurikuler basket dengan pelatih berpengalaman, rutin latihan dan mengikuti kompetisi antar pelajar.</p>
+          <div class="ek-footer">
+            <span class="ek-meta"><i class="fas fa-calendar-alt"></i> Selasa & Kamis, 15.30–17.00</span>
+            <button class="btn-detail">Selengkapnya</button>
+          </div>
+        </div>
+      </div>
+      <div class="ekskul-card" onclick="openEkskul('rohis')">
+        <div class="ek-img"><img src="https://images.unsplash.com/photo-1585783432-c8efc0fed9f0?w=600&q=80" alt="Rohis"/><span class="ek-cat">Keagamaan</span></div>
+        <div class="ek-body">
+          <div class="ek-icon"><i class="fas fa-mosque"></i></div>
+          <h4>Rohis (Rohani Islam)</h4>
+          <p>Memperdalam ilmu agama Islam, membiasakan tilawah Al-Qur'an, serta mengadakan kajian dan kegiatan islami.</p>
+          <div class="ek-footer">
+            <span class="ek-meta"><i class="fas fa-calendar-alt"></i> Jumat, 12.00–13.00</span>
+            <button class="btn-detail">Selengkapnya</button>
+          </div>
+        </div>
+      </div>
+      <div class="ekskul-card" onclick="openEkskul('osis')">
+        <div class="ek-img"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=80" alt="OSIS"/><span class="ek-cat">Organisasi</span></div>
+        <div class="ek-body">
+          <div class="ek-icon"><i class="fas fa-users"></i></div>
+          <h4>OSIS</h4>
+          <p>Organisasi Siswa Intra Sekolah sebagai wadah kepemimpinan dan pengembangan karakter siswa dalam berorganisasi.</p>
+          <div class="ek-footer">
+            <span class="ek-meta"><i class="fas fa-calendar-alt"></i> Kondisional</span>
+            <button class="btn-detail">Selengkapnya</button>
+          </div>
+        </div>
+      </div>
+      <div class="ekskul-card" onclick="openEkskul('seni')">
+        <div class="ek-img"><img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&q=80" alt="Seni"/><span class="ek-cat">Seni & Budaya</span></div>
+        <div class="ek-body">
+          <div class="ek-icon"><i class="fas fa-paint-brush"></i></div>
+          <h4>Seni & Budaya</h4>
+          <p>Mengembangkan bakat seni musik, tari tradisional, dan seni rupa yang rutin tampil di berbagai acara sekolah.</p>
+          <div class="ek-footer">
+            <span class="ek-meta"><i class="fas fa-calendar-alt"></i> Sabtu, 08.00–10.00</span>
+            <button class="btn-detail">Selengkapnya</button>
+          </div>
+        </div>
+      </div>
+      <div class="ekskul-card" onclick="openEkskul('paskibra')">
+        <div class="ek-img"><img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600&q=80" alt="Paskibra"/><span class="ek-cat">Bela Negara</span></div>
+        <div class="ek-body">
+          <div class="ek-icon"><i class="fas fa-flag"></i></div>
+          <h4>Paskibra</h4>
+          <p>Pasukan Pengibar Bendera yang terlatih dan disiplin, aktif bertugas pada upacara bendera dan acara kenegaraan.</p>
+          <div class="ek-footer">
+            <span class="ek-meta"><i class="fas fa-calendar-alt"></i> Sabtu, 07.00–09.00</span>
+            <button class="btn-detail">Selengkapnya</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL -->
+<div class="art-modal" id="ekskulModal">
+  <div class="art-backdrop" onclick="closeEkskul()"></div>
+  <div class="art-box">
+    <div class="art-hero-img"><img id="ekImg" src="" alt=""/></div>
+    <button class="art-close" onclick="closeEkskul()"><i class="fas fa-times"></i></button>
+    <div class="art-content">
+      <span class="art-cat" id="ekCat"></span>
+      <h2 class="art-title" id="ekTitle"></h2>
+      <div class="art-meta" id="ekMeta"></div>
+      <div class="art-body" id="ekBody"></div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Tertarik Bergabung?</h2>
+    <p>Daftarkan diri Anda ke SMK Insan Madani Palasari dan ikuti ekstrakurikuler pilihan Anda!</p>
+    <a class="btn-wa" href="https://wa.me/6289541290383?text=Halo%2C%20saya%20ingin%20bertanya%20tentang%20ekstrakurikuler%20SMK%20Insan%20Madani%20Palasari." target="_blank"><i class="fab fa-whatsapp"></i> Tanya via WhatsApp</a>
+    <a class="btn-back" href="index.html"><i class="fas fa-arrow-left"></i> Kembali ke Beranda</a>
+  </div>
+</section>
+
+<div class="footer-simple">
+  © 2025 <a href="index.html">SMK Insan Madani Palasari</a>. Seluruh hak dilindungi.
+</div>
+
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <i class="fas fa-chevron-up"></i>
+</button>
+
+<script>
+const ekskulData = {
+  pramuka:{
+    img:'https://images.unsplash.com/photo-1527856263669-12c3a0af2aa6?w=900&q=80',
+    cat:'Ekstrakurikuler Wajib',
+    title:'Pramuka',
+    meta:'<span><i class="fas fa-calendar-alt"></i> Jumat, 14.00–16.00</span><span><i class="fas fa-map-marker-alt"></i> Lapangan Sekolah</span><span><i class="fas fa-user"></i> Pembina: Kak Rudi</span>',
+    body:`<p>Pramuka merupakan ekstrakurikuler wajib yang diikuti oleh seluruh siswa kelas X SMK Insan Madani Palasari. Kegiatan ini bertujuan membentuk karakter, kedisiplinan, jiwa kepemimpinan, dan rasa cinta tanah air pada setiap siswa.</p>
+    <h5>Kegiatan yang Dilakukan</h5>
+    <ul><li>Latihan rutin tata upacara dan baris-berbaris</li><li>Keterampilan bertahan hidup (survival skill) dan pertolongan pertama</li><li>Kegiatan berkemah (Perkemahan Sabtu Minggu / Persami)</li><li>Lomba-lomba kepramukaan antar sekolah</li><li>Kegiatan bakti sosial dan peduli lingkungan</li></ul>
+    <h5>Prestasi</h5>
+    <p>Gerakan Pramuka SMK Insan Madani Palasari telah meraih berbagai penghargaan di tingkat kwartir ranting dan kwartir cabang, termasuk Juara Umum Jambore Pramuka Tingkat Kecamatan tahun 2024.</p>
+    <h5>Informasi Pendaftaran</h5>
+    <p>Seluruh siswa kelas X secara otomatis terdaftar sebagai anggota Pramuka. Untuk informasi lebih lanjut, silakan hubungi pembina Pramuka sekolah.</p>`
+  },
+  futsal:{
+    img:'https://images.unsplash.com/photo-1542744094-3a31f272c490?w=900&q=80',
+    cat:'Olahraga',
+    title:'Futsal',
+    meta:'<span><i class="fas fa-calendar-alt"></i> Senin & Rabu, 15.30–17.00</span><span><i class="fas fa-map-marker-alt"></i> Lapangan Futsal</span><span><i class="fas fa-user"></i> Pelatih: Pak Dani</span>',
+    body:`<p>Tim Futsal SMK Insan Madani Palasari merupakan salah satu ekstrakurikuler paling diminati. Dengan pelatih berpengalaman dan semangat tinggi, tim kami rutin mengikuti berbagai kompetisi futsal antar pelajar di tingkat kabupaten hingga provinsi.</p>
+    <h5>Program Latihan</h5>
+    <ul><li>Pemanasan dan teknik dasar futsal (passing, dribbling, shooting)</li><li>Strategi dan taktik permainan tim</li><li>Uji coba (friendly match) dengan sekolah lain</li><li>Persiapan turnamen resmi antar pelajar</li><li>Fisik dan stamina</li></ul>
+    <h5>Prestasi</h5>
+    <p>Tim Futsal kami telah berhasil meraih Juara 2 Turnamen Futsal Pelajar Kabupaten Tangerang 2024 dan masuk 8 besar dalam kompetisi futsal tingkat provinsi Banten.</p>
+    <h5>Syarat Bergabung</h5>
+    <p>Terbuka untuk semua siswa kelas X, XI, dan XII. Seleksi dilakukan di awal tahun ajaran. Wajib hadir minimal 80% dari total sesi latihan dan memiliki semangat tinggi untuk berkompetisi.</p>`
+  },
+  basket:{
+    img:'https://images.unsplash.com/photo-1546519638-68e109498ffc?w=900&q=80',
+    cat:'Olahraga',
+    title:'Basket',
+    meta:'<span><i class="fas fa-calendar-alt"></i> Selasa & Kamis, 15.30–17.00</span><span><i class="fas fa-map-marker-alt"></i> Lapangan Basket</span><span><i class="fas fa-user"></i> Pelatih: Pak Arman</span>',
+    body:`<p>Ekstrakurikuler basket SMK Insan Madani Palasari membina siswa untuk menguasai teknik bermain basket yang baik sekaligus menumbuhkan sportivitas dan kerja sama tim yang solid.</p>
+    <h5>Program Latihan</h5>
+    <ul><li>Teknik dasar: lay-up, dribble, passing, dan shooting</li><li>Strategi menyerang dan bertahan</li><li>Latihan fisik dan kelincahan</li><li>Scrimmage dan pertandingan internal</li><li>Partisipasi dalam turnamen pelajar</li></ul>
+    <h5>Prestasi</h5>
+    <p>Tim basket putra SMK Insan Madani berhasil lolos ke babak semifinal DBL (Development Basketball League) zona Banten pada tahun 2023.</p>
+    <h5>Syarat Bergabung</h5>
+    <p>Terbuka untuk semua siswa. Tidak diperlukan pengalaman sebelumnya — pelatih kami siap membimbing dari dasar. Yang penting semangat dan komitmen latihan!</p>`
+  },
+  rohis:{
+    img:'https://images.unsplash.com/photo-1585783432-c8efc0fed9f0?w=900&q=80',
+    cat:'Keagamaan',
+    title:'Rohis (Rohani Islam)',
+    meta:'<span><i class="fas fa-calendar-alt"></i> Jumat, 12.00–13.00</span><span><i class="fas fa-map-marker-alt"></i> Mushola Sekolah</span><span><i class="fas fa-user"></i> Pembina: Ust. Fauzan</span>',
+    body:`<p>Rohis SMK Insan Madani Palasari hadir sebagai wadah bagi siswa untuk memperdalam ilmu agama Islam, mempererat ukhuwah islamiyah, dan membangun karakter Islami yang kuat di lingkungan sekolah.</p>
+    <h5>Kegiatan Rutin</h5>
+    <ul><li>Tilawah dan tahsin Al-Qur'an bersama</li><li>Kajian Islam mingguan dengan tema relevan</li><li>Peringatan Hari Besar Islam (PHBI)</li><li>Kegiatan infaq dan sedekah jumat</li><li>Pesantren kilat dan retreat tahunan</li></ul>
+    <h5>Program Unggulan</h5>
+    <p>Rohis menjalankan program <strong>Satu Juz Sehari</strong> dan pembinaan hafalan juz 30 bagi anggota yang berminat. Program ini telah melahirkan banyak siswa yang hafal juz 30 selama masa sekolah.</p>
+    <h5>Syarat Bergabung</h5>
+    <p>Terbuka untuk semua siswa muslim. Tidak ada syarat khusus — yang diperlukan hanyalah niat dan komitmen untuk belajar dan memperdalam ilmu agama bersama.</p>`
+  },
+  osis:{
+    img:'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=900&q=80',
+    cat:'Organisasi',
+    title:'OSIS (Organisasi Siswa Intra Sekolah)',
+    meta:'<span><i class="fas fa-calendar-alt"></i> Kondisional</span><span><i class="fas fa-map-marker-alt"></i> Ruang OSIS</span><span><i class="fas fa-user"></i> Pembina: Bu Dewi</span>',
+    body:`<p>OSIS SMK Insan Madani Palasari adalah organisasi resmi intra sekolah yang menjadi wadah kepemimpinan, kreativitas, dan pengembangan karakter siswa. OSIS berperan aktif dalam merancang dan melaksanakan berbagai kegiatan sekolah.</p>
+    <h5>Program Kerja OSIS</h5>
+    <ul><li>Penyelenggaraan MOS / MPLS untuk siswa baru</li><li>Peringatan hari-hari nasional dan hari besar Islam</li><li>Penyelenggaraan pentas seni dan class meeting</li><li>Kegiatan sosial dan bakti masyarakat</li><li>Koordinasi seluruh kegiatan ekstrakurikuler</li></ul>
+    <h5>Manfaat Bergabung OSIS</h5>
+    <p>Menjadi pengurus OSIS melatih kemampuan kepemimpinan, komunikasi, manajemen waktu, dan kerja sama tim yang sangat berguna untuk masa depan karir maupun perkuliahan.</p>
+    <h5>Cara Bergabung</h5>
+    <p>Rekrutmen pengurus OSIS dilakukan setiap tahun melalui seleksi dan pemilihan demokratis. Siswa yang berminat dapat mendaftar dan mempresentasikan visi-misi mereka di hadapan seluruh siswa.</p>`
+  },
+  seni:{
+    img:'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=900&q=80',
+    cat:'Seni & Budaya',
+    title:'Seni & Budaya',
+    meta:'<span><i class="fas fa-calendar-alt"></i> Sabtu, 08.00–10.00</span><span><i class="fas fa-map-marker-alt"></i> Ruang Seni</span><span><i class="fas fa-user"></i> Pembina: Bu Lina</span>',
+    body:`<p>Ekstrakurikuler Seni & Budaya SMK Insan Madani Palasari memberi ruang bagi siswa berbakat untuk mengekspresikan diri melalui berbagai cabang seni, mulai dari musik, tari, hingga seni rupa.</p>
+    <h5>Cabang yang Tersedia</h5>
+    <ul><li><strong>Musik:</strong> vokal, gitar, keyboard, dan band sekolah</li><li><strong>Tari:</strong> tari tradisional Sunda dan tari modern</li><li><strong>Seni Rupa:</strong> menggambar, melukis, dan desain grafis dasar</li><li><strong>Kaligrafi:</strong> seni kaligrafi Arab dan Latin</li></ul>
+    <h5>Penampilan & Prestasi</h5>
+    <p>Tim seni sekolah rutin tampil pada acara perpisahan, peringatan hari nasional, dan festival seni tingkat kabupaten. Beberapa siswa kami meraih juara lomba tari tradisional tingkat kabupaten Tangerang.</p>
+    <h5>Syarat Bergabung</h5>
+    <p>Terbuka untuk semua siswa yang memiliki minat dan bakat di bidang seni. Tidak diperlukan pengalaman sebelumnya — bakat akan diasah bersama pembina yang berpengalaman.</p>`
+  },
+  paskibra:{
+    img:'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=900&q=80',
+    cat:'Bela Negara',
+    title:'Paskibra',
+    meta:'<span><i class="fas fa-calendar-alt"></i> Sabtu, 07.00–09.00</span><span><i class="fas fa-map-marker-alt"></i> Lapangan Upacara</span><span><i class="fas fa-user"></i> Pembina: Pak Hendra</span>',
+    body:`<p>Paskibra SMK Insan Madani Palasari merupakan pasukan pengibar bendera yang terlatih, berdisiplin tinggi, dan penuh rasa cinta tanah air. Paskibra bertugas pada setiap upacara bendera dan acara kenegaraan penting.</p>
+    <h5>Program Latihan</h5>
+    <ul><li>Baris-berbaris tingkat dasar dan lanjutan</li><li>Teknik pengibaran dan penurunan bendera</li><li>Latihan fisik: push up, sit up, lari pagi</li><li>Pengetahuan kebangsaan dan bela negara</li><li>Seleksi Paskibra Kabupaten dan Provinsi</li></ul>
+    <h5>Prestasi</h5>
+    <p>Beberapa anggota Paskibra SMK Insan Madani berhasil lolos seleksi Paskibra Kabupaten Tangerang dan terpilih untuk bertugas pada upacara HUT RI tingkat kabupaten.</p>
+    <h5>Syarat Bergabung</h5>
+    <p>Diutamakan siswa kelas X dan XI, memiliki postur tubuh ideal, kondisi fisik prima, dan berkomitmen tinggi untuk hadir setiap latihan. Seleksi dilakukan di awal tahun ajaran baru.</p>`
+  }
+};
+
+function openEkskul(id){
+  const e=ekskulData[id];
+  document.getElementById('ekImg').src=e.img;
+  document.getElementById('ekCat').textContent=e.cat;
+  document.getElementById('ekTitle').textContent=e.title;
+  document.getElementById('ekMeta').innerHTML=e.meta;
+  document.getElementById('ekBody').innerHTML=e.body;
+  document.getElementById('ekskulModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeEkskul(){
+  document.getElementById('ekskulModal').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeEkskul();});
+
+const stBtn=document.getElementById('scrollTop');
+window.addEventListener('scroll',()=>{stBtn.classList.toggle('visible',scrollY>300);});
+</script>
+</body>
+</html>

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bursa Kerja Khusus — SMK Insan Madani Palasari</title>
+  <link rel="icon" href="assets/logo copy.png" type="image/png"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root{--primary:#1a7a6e;--primary-dark:#135f56;--accent:#f5a623;--accent-dark:#e09010;--text:#333;--text-light:#666;--light-bg:#f8f9fa;--border:#e5e5e5;}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Poppins',sans-serif;color:var(--text);overflow-x:hidden;}
+    .container{max-width:1180px;margin:0 auto;padding:0 20px;}
+
+    /* NAVBAR */
+    .navbar{background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.08);position:sticky;top:0;z-index:999;}
+    .navbar .container{display:flex;align-items:center;justify-content:space-between;padding:10px 20px;}
+    .logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+    .logo-img-wrap{flex-shrink:0;display:flex;align-items:center;}
+    .logo-img-wrap img{height:40px;width:auto;display:block;object-fit:contain;}
+    .logo-text{line-height:1.18;}
+    .logo-text .ls{font-size:9px;font-weight:600;color:var(--text-light);letter-spacing:.4px;}
+    .logo-text .lm{font-size:15px;font-weight:800;color:var(--primary);line-height:1.05;}
+    .logo-text .lm span{color:var(--accent);}
+    .nav-back{display:inline-flex;align-items:center;gap:8px;color:var(--primary);text-decoration:none;font-weight:600;font-size:14px;padding:8px 16px;border:2px solid var(--primary);border-radius:30px;transition:background .2s,color .2s;}
+    .nav-back:hover{background:var(--primary);color:#fff;}
+
+    /* BREADCRUMB */
+    .breadcrumb{background:#fff;border-bottom:1px solid var(--border);padding:12px 0;}
+    .breadcrumb .container{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-light);}
+    .breadcrumb a{color:var(--primary);text-decoration:none;}
+    .breadcrumb i{font-size:10px;}
+
+    /* PAGE HERO */
+    .page-hero{background:linear-gradient(120deg,#0d5c52,#1a7a6e);padding:70px 0;position:relative;overflow:hidden;}
+    .page-hero::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1400&q=80') center/cover;opacity:.15;}
+    .page-hero .container{position:relative;}
+    .page-hero-tag{display:inline-flex;align-items:center;gap:6px;color:var(--accent);font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;}
+    .page-hero h1{font-size:42px;font-weight:800;color:#fff;line-height:1.2;margin-bottom:14px;}
+    .page-hero h1 span{color:var(--accent);}
+    .page-hero p{color:rgba(255,255,255,.82);font-size:15px;line-height:1.7;max-width:580px;}
+
+    /* STATS BAR */
+    .stats-bar{background:var(--accent);padding:20px 0;}
+    .stats-bar .container{display:flex;justify-content:center;gap:60px;flex-wrap:wrap;}
+    .sbar-item{text-align:center;color:#fff;}
+    .sbar-num{font-size:28px;font-weight:800;line-height:1;}
+    .sbar-lbl{font-size:12px;opacity:.9;}
+
+    /* SECTION */
+    .section{padding:80px 0;}
+    .section-tag{display:inline-flex;align-items:center;gap:6px;color:var(--accent);font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;}
+    .section-header{margin-bottom:50px;}
+    .section-header h2{font-size:32px;font-weight:800;margin-bottom:10px;}
+    .section-header h2 span{color:var(--primary);}
+    .section-header p{color:var(--text-light);font-size:14px;max-width:580px;}
+
+    /* LAYANAN GRID */
+    .layanan-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+    .layanan-card{background:#fff;border-radius:14px;padding:28px;box-shadow:0 4px 18px rgba(0,0,0,.07);display:flex;gap:20px;align-items:flex-start;cursor:pointer;transition:transform .25s,box-shadow .25s;}
+    .layanan-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.12);}
+    .lk-icon{width:56px;height:56px;background:#e8f5f3;border-radius:14px;display:flex;align-items:center;justify-content:center;color:var(--primary);font-size:24px;flex-shrink:0;}
+    .lk-text h4{font-size:16px;font-weight:700;margin-bottom:8px;}
+    .lk-text p{font-size:13px;color:var(--text-light);line-height:1.6;margin-bottom:12px;}
+    .lk-btn{color:var(--primary);font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:5px;border:none;background:none;cursor:pointer;font-family:inherit;padding:0;transition:color .2s;}
+    .lk-btn:hover{color:var(--accent);}
+
+    /* MITRA GRID */
+    .mitra-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+    .mitra-card{background:#fff;border-radius:12px;padding:24px;box-shadow:0 4px 14px rgba(0,0,0,.07);text-align:center;transition:transform .2s,box-shadow .2s;}
+    .mitra-card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(0,0,0,.11);}
+    .mitra-icon{width:64px;height:64px;background:#e8f5f3;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--primary);font-size:26px;margin:0 auto 14px;}
+    .mitra-card h4{font-size:15px;font-weight:700;margin-bottom:6px;}
+    .mitra-card p{font-size:12px;color:var(--text-light);line-height:1.5;margin-bottom:8px;}
+    .mitra-badge{display:inline-block;background:#e8f5f3;color:var(--primary);font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;}
+
+    /* ALUMNI GRID */
+    .alumni-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+    .alumni-card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 4px 18px rgba(0,0,0,.06);position:relative;}
+    .alumni-card::before{content:'\201C';font-size:60px;color:var(--primary);opacity:.1;position:absolute;top:10px;right:16px;line-height:1;font-family:Georgia,serif;}
+    .al-ava{width:52px;height:52px;border-radius:50%;object-fit:cover;margin-bottom:12px;}
+    .al-stars{color:var(--accent);font-size:12px;margin-bottom:8px;}
+    .al-text{font-size:13px;color:var(--text-light);line-height:1.7;margin-bottom:14px;}
+    .al-name{font-size:14px;font-weight:700;}
+    .al-role{font-size:12px;color:var(--primary);}
+
+    /* ALUR */
+    .alur-list{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;}
+    .alur-list::before{content:'';position:absolute;top:36px;left:12.5%;right:12.5%;height:2px;background:var(--border);z-index:0;}
+    .alur-item{text-align:center;position:relative;z-index:1;}
+    .alur-num{width:72px;height:72px;background:var(--primary);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:#fff;font-size:22px;}
+    .alur-item h4{font-size:14px;font-weight:700;margin-bottom:6px;}
+    .alur-item p{font-size:12.5px;color:var(--text-light);line-height:1.5;padding:0 10px;}
+
+    /* JADWAL BOX */
+    .jadwal-box{background:var(--primary);border-radius:16px;padding:40px;color:#fff;display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;}
+    .jadwal-left h3{font-size:24px;font-weight:800;margin-bottom:12px;}
+    .jadwal-left p{color:rgba(255,255,255,.82);font-size:14px;line-height:1.7;}
+    .jadwal-list{list-style:none;}
+    .jadwal-list li{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.15);font-size:14px;}
+    .jadwal-list li:last-child{border-bottom:none;}
+    .jadwal-list .day{color:rgba(255,255,255,.8);}
+    .jadwal-list .time{font-weight:600;color:var(--accent);}
+
+    /* MODAL */
+    .art-modal{display:none;position:fixed;inset:0;z-index:9999;align-items:flex-start;justify-content:center;padding:20px;overflow-y:auto;}
+    .art-modal.open{display:flex;}
+    .art-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);}
+    .art-box{position:relative;background:#fff;border-radius:16px;max-width:780px;width:100%;margin:auto;box-shadow:0 24px 60px rgba(0,0,0,.3);overflow:hidden;}
+    .art-hero-img{height:280px;overflow:hidden;}
+    .art-hero-img img{width:100%;height:100%;object-fit:cover;}
+    .art-close{position:absolute;top:14px;right:14px;width:36px;height:36px;background:rgba(0,0,0,.5);border:none;border-radius:50%;color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;z-index:10;}
+    .art-close:hover{background:var(--accent);}
+    .art-content{padding:32px;}
+    .art-cat{display:inline-block;background:#e8f5f3;color:var(--primary);font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:10px;}
+    .art-title{font-size:22px;font-weight:800;margin-bottom:10px;line-height:1.3;color:var(--text);}
+    .art-meta{font-size:12px;color:var(--text-light);margin-bottom:20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+    .art-meta i{color:var(--primary);}
+    .art-body{font-size:14px;color:var(--text-light);line-height:1.9;}
+    .art-body p{margin-bottom:16px;}
+    .art-body h5{font-size:16px;font-weight:700;color:var(--text);margin:24px 0 10px;}
+    .art-body ul{padding-left:20px;margin-bottom:16px;}
+    .art-body ul li{margin-bottom:6px;}
+
+    /* CTA */
+    .cta-section{background:linear-gradient(120deg,var(--primary),#15a88d);padding:60px 0;text-align:center;}
+    .cta-section h2{font-size:28px;font-weight:800;color:#fff;margin-bottom:10px;}
+    .cta-section p{color:rgba(255,255,255,.82);font-size:14px;margin-bottom:24px;}
+    .btn-wa{background:#25D366;color:#fff;padding:12px 30px;border-radius:30px;font-weight:700;font-size:14px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:transform .2s,background .2s;}
+    .btn-wa:hover{transform:translateY(-2px);background:#1ebe5c;}
+    .btn-back{background:rgba(255,255,255,.2);color:#fff;padding:12px 30px;border-radius:30px;font-weight:600;font-size:14px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;margin-left:12px;transition:background .2s;}
+    .btn-back:hover{background:rgba(255,255,255,.3);}
+
+    .footer-simple{background:#0d2d28;color:rgba(255,255,255,.6);text-align:center;padding:20px;font-size:13px;}
+    .footer-simple a{color:var(--accent);text-decoration:none;}
+
+    .scroll-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--accent);color:#fff;border:none;border-radius:50%;font-size:18px;cursor:pointer;box-shadow:0 4px 16px rgba(245,166,35,.4);display:none;align-items:center;justify-content:center;transition:transform .2s,background .2s;z-index:998;}
+    .scroll-top.visible{display:flex;}
+    .scroll-top:hover{background:var(--primary);}
+
+    @media(max-width:1024px){.layanan-grid{grid-template-columns:1fr;}.mitra-grid{grid-template-columns:repeat(2,1fr);}.alumni-grid{grid-template-columns:repeat(2,1fr);}.alur-list{grid-template-columns:repeat(2,1fr);gap:30px;}.alur-list::before{display:none;}.jadwal-box{grid-template-columns:1fr;}}
+    @media(max-width:640px){.mitra-grid{grid-template-columns:1fr;}.alumni-grid{grid-template-columns:1fr;}.alur-list{grid-template-columns:1fr;}.page-hero h1{font-size:28px;}.stats-bar .container{gap:30px;}.art-hero-img{height:180px;}.art-title{font-size:18px;}}
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="container">
+    <a class="logo" href="index.html">
+      <div class="logo-img-wrap"><img src="assets/logo.png" alt="Logo SMK Insan Madani Palasari"/></div>
+      <div class="logo-text">
+        <div class="ls">Sekolah Menengah Kejuruan</div>
+        <div class="lm"><span>Insan Madani</span> Palasari</div>
+      </div>
+    </a>
+    <a class="nav-back" href="index.html"><i class="fas fa-arrow-left"></i> Kembali ke Beranda</a>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <div class="container">
+    <a href="index.html">Beranda</a>
+    <i class="fas fa-chevron-right"></i>
+    <span>Bursa Kerja Khusus (BKK)</span>
+  </div>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-tag"><i class="fas fa-briefcase"></i> KARIR & PENEMPATAN KERJA</div>
+    <h1>Bursa Kerja Khusus <span>(BKK)</span></h1>
+    <p>BKK SMK Insan Madani Palasari hadir sebagai jembatan antara lulusan dengan dunia kerja. Kami membantu setiap alumni menemukan pekerjaan terbaik sesuai kompetensi dan jurusan mereka.</p>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="sbar-item"><div class="sbar-num">85%</div><div class="sbar-lbl">Tingkat Penempatan Kerja</div></div>
+    <div class="sbar-item"><div class="sbar-num">30+</div><div class="sbar-lbl">Perusahaan Mitra</div></div>
+    <div class="sbar-item"><div class="sbar-num">200+</div><div class="sbar-lbl">Alumni Terserap Kerja</div></div>
+    <div class="sbar-item"><div class="sbar-num">3</div><div class="sbar-lbl">Jurusan Dilayani</div></div>
+  </div>
+</div>
+
+<!-- LAYANAN BKK -->
+<section class="section" style="background:#fff;">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag"><i class="fas fa-hands-helping"></i> LAYANAN</div>
+      <h2>Layanan <span>BKK Kami</span></h2>
+      <p>Berbagai layanan tersedia untuk membantu lulusan dan siswa kelas XII mempersiapkan diri memasuki dunia kerja.</p>
+    </div>
+    <div class="layanan-grid">
+      <div class="layanan-card" onclick="openLayanan('info_lowongan')">
+        <div class="lk-icon"><i class="fas fa-newspaper"></i></div>
+        <div class="lk-text">
+          <h4>Informasi Lowongan Kerja</h4>
+          <p>Update lowongan kerja terbaru dari perusahaan mitra yang khusus membuka rekrutmen untuk lulusan SMK Insan Madani Palasari.</p>
+          <button class="lk-btn">Selengkapnya <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+      <div class="layanan-card" onclick="openLayanan('rekrutmen')">
+        <div class="lk-icon"><i class="fas fa-user-check"></i></div>
+        <div class="lk-text">
+          <h4>Rekrutmen & Penempatan</h4>
+          <p>Proses rekrutmen langsung di sekolah bekerja sama dengan perusahaan mitra, mulai dari seleksi berkas hingga wawancara kerja.</p>
+          <button class="lk-btn">Selengkapnya <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+      <div class="layanan-card" onclick="openLayanan('pelatihan')">
+        <div class="lk-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+        <div class="lk-text">
+          <h4>Pelatihan Pra-Kerja</h4>
+          <p>Workshop pembuatan CV, surat lamaran kerja, simulasi wawancara, dan pembekalan soft skill untuk persiapan memasuki dunia kerja.</p>
+          <button class="lk-btn">Selengkapnya <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+      <div class="layanan-card" onclick="openLayanan('pkwt')">
+        <div class="lk-icon"><i class="fas fa-file-contract"></i></div>
+        <div class="lk-text">
+          <h4>Konsultasi Kontrak Kerja</h4>
+          <p>Bimbingan memahami hak dan kewajiban sebagai pekerja, jenis kontrak kerja, serta regulasi ketenagakerjaan yang perlu diketahui.</p>
+          <button class="lk-btn">Selengkapnya <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ALUR PENDAFTARAN -->
+<section class="section" style="background:var(--light-bg);">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag"><i class="fas fa-route"></i> ALUR</div>
+      <h2>Cara <span>Mendaftar ke BKK</span></h2>
+      <p>Proses pendaftaran mudah dan cepat. Ikuti langkah berikut untuk mulai mencari kerja melalui BKK.</p>
+    </div>
+    <div class="alur-list">
+      <div class="alur-item">
+        <div class="alur-num"><i class="fas fa-user-plus"></i></div>
+        <h4>1. Daftar ke BKK</h4>
+        <p>Datang ke ruang BKK atau hubungi via WhatsApp untuk mendaftarkan diri sebagai pencari kerja.</p>
+      </div>
+      <div class="alur-item">
+        <div class="alur-num"><i class="fas fa-file-alt"></i></div>
+        <h4>2. Lengkapi Berkas</h4>
+        <p>Siapkan CV, ijazah, foto, dan dokumen pendukung lainnya sesuai kebutuhan perusahaan tujuan.</p>
+      </div>
+      <div class="alur-item">
+        <div class="alur-num"><i class="fas fa-search"></i></div>
+        <h4>3. Pilih Lowongan</h4>
+        <p>BKK akan mencocokkan profil Anda dengan lowongan yang tersedia dari perusahaan mitra.</p>
+      </div>
+      <div class="alur-item">
+        <div class="alur-num"><i class="fas fa-handshake"></i></div>
+        <h4>4. Proses Seleksi</h4>
+        <p>Ikuti proses seleksi dan wawancara. BKK akan mendampingi hingga Anda resmi diterima bekerja.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PERUSAHAAN MITRA -->
+<section class="section" style="background:#fff;">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag"><i class="fas fa-building"></i> MITRA INDUSTRI</div>
+      <h2>Perusahaan <span>Mitra BKK</span></h2>
+      <p>Kami bermitra dengan berbagai perusahaan terpercaya yang rutin membuka lowongan khusus untuk lulusan SMK Insan Madani.</p>
+    </div>
+    <div class="mitra-grid">
+      <div class="mitra-card">
+        <div class="mitra-icon"><i class="fas fa-laptop-code"></i></div>
+        <h4>PT. Teknologi Nusantara</h4>
+        <p>Perusahaan IT terkemuka yang membuka posisi untuk lulusan TKJ.</p>
+        <span class="mitra-badge">Teknologi Informasi</span>
+      </div>
+      <div class="mitra-card">
+        <div class="mitra-icon"><i class="fas fa-industry"></i></div>
+        <h4>PT. Maju Bersama Tbk.</h4>
+        <p>Perusahaan manufaktur yang membutuhkan tenaga administrasi dan keuangan.</p>
+        <span class="mitra-badge">Manufaktur</span>
+      </div>
+      <div class="mitra-card">
+        <div class="mitra-icon"><i class="fas fa-university"></i></div>
+        <h4>Bank Daerah Tangerang</h4>
+        <p>Lembaga keuangan yang membuka rekrutmen untuk lulusan Akuntansi.</p>
+        <span class="mitra-badge">Perbankan</span>
+      </div>
+      <div class="mitra-card">
+        <div class="mitra-icon"><i class="fas fa-shopping-bag"></i></div>
+        <h4>PT. Ritel Sukses Indonesia</h4>
+        <p>Jaringan ritel nasional yang membutuhkan staff kasir dan administrasi toko.</p>
+        <span class="mitra-badge">Ritel</span>
+      </div>
+      <div class="mitra-card">
+        <div class="mitra-icon"><i class="fas fa-hospital"></i></div>
+        <h4>RS. Harapan Sehat</h4>
+        <p>Rumah sakit swasta yang membuka posisi administrasi medis dan rekam medis.</p>
+        <span class="mitra-badge">Kesehatan</span>
+      </div>
+      <div class="mitra-card">
+        <div class="mitra-icon"><i class="fas fa-truck"></i></div>
+        <h4>PT. Logistik Cepat</h4>
+        <p>Perusahaan logistik yang membuka posisi admin gudang dan operator komputer.</p>
+        <span class="mitra-badge">Logistik</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONI ALUMNI -->
+<section class="section" style="background:var(--light-bg);">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag"><i class="fas fa-star"></i> ALUMNI</div>
+      <h2>Kata <span>Alumni yang Berhasil</span></h2>
+      <p>Mereka yang sudah merasakan manfaat BKK SMK Insan Madani Palasari.</p>
+    </div>
+    <div class="alumni-grid">
+      <div class="alumni-card">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" alt="" class="al-ava"/>
+        <div class="al-stars">★★★★★</div>
+        <p class="al-text">Berkat BKK, saya langsung dapat kerja di perusahaan IT 2 bulan setelah lulus. Prosesnya cepat dan staff BKK sangat membantu mempersiapkan berkas dan wawancara saya.</p>
+        <div class="al-name">Rizki Aditya</div>
+        <div class="al-role">Alumni TKJ 2023 — Network Engineer di PT. Teknologi Nusantara</div>
+      </div>
+      <div class="alumni-card">
+        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&q=80" alt="" class="al-ava"/>
+        <div class="al-stars">★★★★★</div>
+        <p class="al-text">BKK SMK Insan Madani benar-benar membantu saya. Workshop CV dan simulasi wawancara membuat saya lebih percaya diri. Sekarang saya sudah bekerja di bank daerah.</p>
+        <div class="al-name">Siti Nuraini</div>
+        <div class="al-role">Alumni Akuntansi 2023 — Teller di Bank Daerah Tangerang</div>
+      </div>
+      <div class="alumni-card">
+        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80" alt="" class="al-ava"/>
+        <div class="al-stars">★★★★★</div>
+        <p class="al-text">Saya sempat bingung mau kerja di mana setelah lulus. BKK langsung membantu mencarikan lowongan yang sesuai jurusan saya. Alhamdulillah sekarang sudah kerja!</p>
+        <div class="al-name">Dimas Fahreza</div>
+        <div class="al-role">Alumni OTKP 2022 — Staff Administrasi di PT. Maju Bersama</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JAM LAYANAN -->
+<section class="section" style="background:#fff;">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag"><i class="fas fa-clock"></i> JAM OPERASIONAL</div>
+      <h2>Jam <span>Layanan BKK</span></h2>
+    </div>
+    <div class="jadwal-box">
+      <div class="jadwal-left">
+        <h3>Kami Siap Membantu Karir Anda</h3>
+        <p>Ruang BKK SMK Insan Madani Palasari terbuka setiap hari kerja. Siswa kelas XII dan alumni dapat datang langsung atau menghubungi terlebih dahulu via WhatsApp untuk konsultasi karir.</p>
+        <br/>
+        <a href="https://wa.me/6289541290383?text=Halo%2C%20saya%20ingin%20mendaftar%20dan%20bertanya%20tentang%20lowongan%20kerja%20melalui%20BKK%20SMK%20Insan%20Madani%20Palasari." target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:10px 22px;border-radius:30px;font-weight:700;font-size:13px;text-decoration:none;margin-top:6px;">
+          <i class="fab fa-whatsapp"></i> Daftar via WhatsApp
+        </a>
+      </div>
+      <div>
+        <ul class="jadwal-list">
+          <li><span class="day">Senin</span><span class="time">07.30 – 14.00 WIB</span></li>
+          <li><span class="day">Selasa</span><span class="time">07.30 – 14.00 WIB</span></li>
+          <li><span class="day">Rabu</span><span class="time">07.30 – 14.00 WIB</span></li>
+          <li><span class="day">Kamis</span><span class="time">07.30 – 14.00 WIB</span></li>
+          <li><span class="day">Jumat</span><span class="time">07.30 – 11.30 WIB</span></li>
+          <li><span class="day">Sabtu – Minggu</span><span class="time">Tutup</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL LAYANAN -->
+<div class="art-modal" id="layananModal">
+  <div class="art-backdrop" onclick="closeLayanan()"></div>
+  <div class="art-box">
+    <div class="art-hero-img"><img id="lvImg" src="" alt=""/></div>
+    <button class="art-close" onclick="closeLayanan()"><i class="fas fa-times"></i></button>
+    <div class="art-content">
+      <span class="art-cat" id="lvCat"></span>
+      <h2 class="art-title" id="lvTitle"></h2>
+      <div class="art-meta" id="lvMeta"></div>
+      <div class="art-body" id="lvBody"></div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Siap Memulai Karir Anda?</h2>
+    <p>Hubungi BKK SMK Insan Madani Palasari sekarang dan mulai perjalanan karir Anda bersama kami!</p>
+    <a class="btn-wa" href="https://wa.me/6289541290383?text=Halo%2C%20saya%20ingin%20mendaftar%20dan%20bertanya%20tentang%20lowongan%20kerja%20melalui%20BKK%20SMK%20Insan%20Madani%20Palasari." target="_blank"><i class="fab fa-whatsapp"></i> Hubungi BKK via WhatsApp</a>
+    <a class="btn-back" href="index.html"><i class="fas fa-arrow-left"></i> Kembali ke Beranda</a>
+  </div>
+</section>
+
+<div class="footer-simple">© 2025 <a href="index.html">SMK Insan Madani Palasari</a>. Seluruh hak dilindungi.</div>
+
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <i class="fas fa-chevron-up"></i>
+</button>
+
+<script>
+const layananData = {
+  info_lowongan:{
+    img:'https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=900&q=80',
+    cat:'Layanan BKK',
+    title:'Informasi Lowongan Kerja',
+    meta:'<span><i class="fas fa-map-marker-alt"></i> Ruang BKK</span><span><i class="fas fa-sync"></i> Update Rutin</span>',
+    body:`<p>BKK SMK Insan Madani Palasari secara aktif mengumpulkan dan menyebarluaskan informasi lowongan kerja dari perusahaan-perusahaan mitra yang secara khusus mencari lulusan SMK kejuruan.</p>
+    <h5>Cara Mendapatkan Info Lowongan</h5>
+    <ul><li>Datang langsung ke ruang BKK untuk melihat papan informasi lowongan terbaru</li><li>Hubungi staf BKK via WhatsApp untuk mendapatkan kiriman info lowongan</li><li>Bergabung di grup WhatsApp alumni BKK untuk update lowongan harian</li><li>Cek mading sekolah yang rutin diperbarui setiap minggu</li></ul>
+    <h5>Jenis Lowongan yang Tersedia</h5>
+    <ul><li><strong>TKJ:</strong> IT Support, Network Technician, Operator Komputer, Web Developer Junior</li><li><strong>Akuntansi:</strong> Staff Keuangan, Kasir, Teller Bank, Accounting Staff</li><li><strong>OTKP:</strong> Sekretaris, Staff Administrasi, Resepsionis, Customer Service</li></ul>
+    <h5>Tips Memilih Lowongan</h5>
+    <p>Pilih lowongan yang sesuai dengan jurusan dan kompetensi Anda. Jangan ragu untuk berkonsultasi dengan staf BKK jika bingung memilih lowongan yang paling tepat untuk Anda.</p>`
+  },
+  rekrutmen:{
+    img:'https://images.unsplash.com/photo-1560439514-4e9645039924?w=900&q=80',
+    cat:'Layanan BKK',
+    title:'Rekrutmen & Penempatan Kerja',
+    meta:'<span><i class="fas fa-map-marker-alt"></i> Ruang BKK / Aula Sekolah</span><span><i class="fas fa-calendar-alt"></i> Terjadwal</span>',
+    body:`<p>BKK memfasilitasi proses rekrutmen langsung di lingkungan sekolah, memudahkan perusahaan mitra bertemu dengan calon tenaga kerja lulusan SMK Insan Madani Palasari.</p>
+    <h5>Proses Rekrutmen</h5>
+    <ul><li><strong>Job Fair Sekolah:</strong> Diadakan setiap semester, menghadirkan 5–10 perusahaan mitra langsung ke sekolah</li><li><strong>Rekrutmen On-Campus:</strong> Perusahaan mitra melakukan seleksi berkas dan wawancara langsung di aula sekolah</li><li><strong>Penempatan Langsung:</strong> Untuk lulusan dengan nilai dan kompetensi terbaik, BKK merekomendasikan langsung ke perusahaan mitra</li></ul>
+    <h5>Persyaratan Umum</h5>
+    <ul><li>Memiliki ijazah SMK Insan Madani Palasari</li><li>CV dan surat lamaran yang telah diverifikasi BKK</li><li>Sertifikat kompetensi (jika ada)</li><li>Pas foto terbaru dan dokumen identitas</li></ul>
+    <h5>Tingkat Keberhasilan</h5>
+    <p>Lebih dari 85% peserta rekrutmen melalui BKK berhasil diterima bekerja dalam waktu 3 bulan setelah kelulusan. Ini merupakan bukti kepercayaan perusahaan mitra terhadap kualitas lulusan SMK Insan Madani.</p>`
+  },
+  pelatihan:{
+    img:'https://images.unsplash.com/photo-1544531585-9847b68c8c86?w=900&q=80',
+    cat:'Layanan BKK',
+    title:'Pelatihan Pra-Kerja',
+    meta:'<span><i class="fas fa-calendar-alt"></i> Semester Genap Kelas XII</span><span><i class="fas fa-users"></i> Semua Jurusan</span>',
+    body:`<p>Program Pelatihan Pra-Kerja dirancang khusus untuk siswa kelas XII agar siap menghadapi dunia kerja nyata dengan percaya diri dan profesional.</p>
+    <h5>Materi Pelatihan</h5>
+    <ul><li><strong>Workshop CV & Surat Lamaran:</strong> Cara membuat CV yang menarik dan surat lamaran yang profesional sesuai standar HRD perusahaan</li><li><strong>Simulasi Wawancara:</strong> Latihan menjawab pertanyaan wawancara umum dan teknis, termasuk simulasi wawancara dengan praktisi HRD asli</li><li><strong>Personal Branding:</strong> Cara membangun citra profesional di LinkedIn dan media sosial lainnya</li><li><strong>Etika Kerja:</strong> Tata krama di tempat kerja, kedisiplinan, dan profesionalisme</li><li><strong>Finansial Dasar:</strong> Cara mengelola gaji pertama dengan bijak</li></ul>
+    <h5>Jadwal Pelatihan</h5>
+    <p>Pelatihan Pra-Kerja dilaksanakan setiap semester genap, khususnya untuk siswa kelas XII. Sesi berlangsung selama 2–3 hari dengan menghadirkan narasumber dari praktisi HRD dan pengusaha sukses alumni sekolah.</p>`
+  },
+  pkwt:{
+    img:'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=900&q=80',
+    cat:'Layanan BKK',
+    title:'Konsultasi Kontrak & Hak Kerja',
+    meta:'<span><i class="fas fa-map-marker-alt"></i> Ruang BKK</span><span><i class="fas fa-shield-alt"></i> Gratis</span>',
+    body:`<p>BKK menyediakan layanan konsultasi bagi lulusan yang ingin memahami hak dan kewajiban mereka sebagai pekerja, serta membantu mereka membaca dan memahami kontrak kerja sebelum ditandatangani.</p>
+    <h5>Yang Bisa Dikonsultasikan</h5>
+    <ul><li>Perbedaan PKWT (Perjanjian Kerja Waktu Tertentu) dan PKWTT (tetap)</li><li>Hak-hak dasar pekerja: UMR, cuti, BPJS, lembur</li><li>Cara membaca dan memahami isi kontrak kerja</li><li>Hal-hal yang perlu diperhatikan sebelum menandatangani kontrak</li><li>Prosedur jika terjadi perselisihan dengan perusahaan</li></ul>
+    <h5>Mengapa Ini Penting?</h5>
+    <p>Banyak pekerja muda yang tidak memahami hak mereka dan akhirnya dirugikan oleh perusahaan. BKK hadir untuk memastikan setiap lulusan SMK Insan Madani memahami hak-hak mereka sebelum memulai pekerjaan pertama.</p>
+    <h5>Cara Mengakses Layanan</h5>
+    <p>Datang langsung ke ruang BKK atau bawa dokumen kontrak kerja yang ingin dikonsultasikan. Layanan ini gratis dan terbuka untuk semua alumni SMK Insan Madani Palasari.</p>`
+  }
+};
+
+function openLayanan(id){
+  const l=layananData[id];
+  document.getElementById('lvImg').src=l.img;
+  document.getElementById('lvCat').textContent=l.cat;
+  document.getElementById('lvTitle').textContent=l.title;
+  document.getElementById('lvMeta').innerHTML=l.meta;
+  document.getElementById('lvBody').innerHTML=l.body;
+  document.getElementById('layananModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLayanan(){
+  document.getElementById('layananModal').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLayanan();});
+
+const stBtn=document.getElementById('scrollTop');
+window.addEventListener('scroll',()=>{stBtn.classList.toggle('visible',scrollY>300);});
+</script>
+</body>
+</html>
