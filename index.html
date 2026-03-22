@@ -4,13 +4,6 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SMK Insan Madani Palasari</title>
-  <!--
-    ============================================================
-    FAVICON / ICON TAB BROWSER
-    Ganti href di bawah dengan path logo sekolah Anda.
-    Contoh: <link rel="icon" href="./assets/logo-smk.png" type="image/png"/>
-    ============================================================
-  -->
   <link rel="icon" href="assets/logo copy.png" type="image/png"/>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
@@ -36,13 +29,6 @@
     .navbar{background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.08);position:sticky;top:0;z-index:999;}
     .navbar .container{display:flex;align-items:center;justify-content:space-between;padding:10px 20px;}
     .logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
-    /*
-      ============================================================
-      LOGO SEKOLAH — Ganti src img di dalam .logo-img-wrap
-      dengan path logo resmi sekolah.
-      Contoh: <img src="./assets/logo-smk.png" alt="Logo"/>
-      ============================================================
-    */
     .logo-img-wrap{flex-shrink:0;display:flex;align-items:center;}
     .logo-img-wrap img{height:40px;width:auto;display:block;object-fit:contain;}
     .logo-text{line-height:1.18;}
@@ -70,7 +56,6 @@
     /* HERO */
     .hero{min-height:520px;position:relative;overflow:hidden;display:flex;align-items:center;}
     .hero::before{content:'';position:absolute;inset:0;background:url('https://file.data.kemendikdasmen.go.id/sekolahkita/69/6995/69954358-2.jpg') center/cover no-repeat;z-index:0;}
-    /* gardien bg */
     .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(6,51,45,.82) 20%,rgba(6,55,49,.55) 58%,rgba(7,67,59,.1) 85%,transparent 100%);z-index:1;}
     .hero .container{display:flex;justify-content:flex-start;align-items:center;width:100%;}
     .hero-content{position:relative;z-index:2;max-width:480px;padding:80px 0;}
@@ -182,13 +167,11 @@
     .c-footer{display:flex;align-items:center;justify-content:space-between;padding-top:14px;border-top:1px solid var(--border);margin-top:auto;}
     .stars{color:var(--accent);font-size:12px;}
     .stars span{color:var(--text-light);font-size:12px;margin-left:4px;}
-    .btn-sm{background:var(--primary);color:#fff;padding:7px 18px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;transition:background .2s;}
+    .btn-sm{background:var(--primary);color:#fff;padding:7px 18px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;transition:background .2s;border:none;cursor:pointer;font-family:inherit;}
     .btn-sm:hover{background:var(--primary-dark);}
 
     /* TEACHERS */
     .teachers{padding:90px 0;background:#fff;}
-
-    /* Kepsek */
     .kepsek-wrap{display:flex;justify-content:center;margin-bottom:52px;}
     .kepsek-card{background:var(--light-bg);border-radius:16px;overflow:hidden;width:250px;box-shadow:0 4px 20px rgba(0,0,0,.09);transition:transform .25s,box-shadow .25s;}
     .kepsek-card:hover{transform:translateY(-6px);box-shadow:0 14px 36px rgba(0,0,0,.13);}
@@ -201,8 +184,6 @@
     .kepsek-social{display:flex;justify-content:center;gap:10px;margin-top:10px;}
     .kepsek-social a{width:30px;height:30px;border-radius:50%;background:#e8f5f3;display:flex;align-items:center;justify-content:center;color:var(--primary);font-size:13px;transition:background .2s,color .2s;text-decoration:none;}
     .kepsek-social a:hover{background:var(--primary);color:#fff;}
-
-    /* Wakasek */
     .sub-ttl{font-size:20px;font-weight:800;text-align:center;margin-bottom:26px;}
     .sub-ttl span{color:var(--primary);}
     .wks-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-bottom:48px;}
@@ -214,8 +195,6 @@
     .wks-info{padding:14px;}
     .wks-info h4{font-size:14px;font-weight:700;margin-bottom:3px;}
     .wks-info p{font-size:12px;color:var(--primary);font-weight:500;}
-
-    /* Toggle semua guru */
     .guru-toggle-btn{display:flex;align-items:center;justify-content:space-between;background:var(--primary);border-radius:12px;padding:18px 28px;cursor:pointer;user-select:none;border:none;width:100%;transition:background .2s;}
     .guru-toggle-btn:hover{background:var(--primary-dark);}
     .guru-toggle-btn h3{font-size:16px;font-weight:700;color:#fff;display:flex;align-items:center;gap:10px;}
@@ -275,7 +254,7 @@
     .n-link{color:var(--primary);font-size:13px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:5px;margin-top:auto;transition:color .2s;background:none;border:none;cursor:pointer;padding:0;font-family:inherit;}
     .n-link:hover{color:var(--accent);}
 
-    /* MODAL ARTIKEL */
+    /* MODAL (artikel & jurusan) */
     .art-modal{display:none;position:fixed;inset:0;z-index:9999;align-items:flex-start;justify-content:center;padding:20px;overflow-y:auto;}
     .art-modal.open{display:flex;}
     .art-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);}
@@ -394,11 +373,7 @@
     </div>
     <div class="topbar-right">
       <span><i class="fas fa-map-marker-alt"></i> JL. PANDAWA RT. 001 RW. 004 PALASARI, Kec. Legok, Kab. Tangerang, Prov. Banten</span>
-      <!-- <span><i class="fas fa-envelope"></i> <a href="mailto:smkimp@gmail.com">smkimp@gmail.com</a></span> -->
-      <span style="color: white;">
-          <i class="fas fa-envelope"></i> 
-          <a href="mailto:smkimp@gmail.com" style="color: white;">smkimp@gmail.com</a>
-      </span>
+      <span style="color:white;"><i class="fas fa-envelope"></i> <a href="mailto:smkimp@gmail.com" style="color:white;">smkimp@gmail.com</a></span>
       <span><i class="fas fa-phone"></i> +62 260 123 4567</span>
     </div>
   </div>
@@ -414,7 +389,6 @@
       <div class="logo-text">
         <div class="ls">Sekolah Menengah Kejuruan</div>
         <div class="lm"><span>Insan Madani</span> Palasari</div>
-        <!-- <span class="lp">Palasari</span> -->
       </div>
     </a>
     <ul class="nav-links">
@@ -422,7 +396,7 @@
         <div class="dropdown"><a href="#">Halaman Utama</a><a href="#sejarah">Profil Sekolah</a></div>
       </li>
       <li><a href="#jurusan">Jurusan <i class="fas fa-chevron-down arr"></i></a>
-        <div class="dropdown"><a href="#">Teknik Komputer Jaringan</a><a href="#">Akuntansi & Keuangan</a><a href="#">Otomatisasi Perkantoran</a></div>
+        <div class="dropdown"><a href="#" onclick="openJurusan('tkj');return false;">Teknik Komputer Jaringan</a><a href="#" onclick="openJurusan('akuntansi');return false;">Akuntansi & Keuangan</a><a href="#" onclick="openJurusan('otkp');return false;">Otomatisasi Perkantoran</a></div>
       </li>
       <li><a href="#sejarah">Akademik <i class="fas fa-chevron-down arr"></i></a>
         <div class="dropdown"><a href="#sejarah">Sejarah Sekolah</a><a href="#visi-misi">Visi & Misi</a></div>
@@ -431,12 +405,6 @@
       <li><a href="#berita">Blog</a></li>
       <li><a href="#kontak">Kontak</a></li>
     </ul>
-    <!--
-      ============================================================
-      TOMBOL PPDB — Nomor WhatsApp: +62 895-4129-03832
-      Ganti nomor di href jika berubah.
-      ============================================================
-    -->
     <a class="btn-apply" href="https://wa.me/6289541290383?text=Halo%2C%20saya%20ingin%20bertanya%20tentang%20PPDB%20SMK%20Insan%20Madani%20Palasari." target="_blank" rel="noopener">
       <i class="fab fa-whatsapp"></i> PPDB
     </a>
@@ -457,9 +425,7 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-aside">
-    <img src="https://lh3.googleusercontent.com/gps-cs-s/AHVAweo29LK7yxGdeoMMlaxQ3ZYc5fVP61VMC2UG7AxP88_pqYJkIEUEIHTSJzQaLZU6zQy7L1iLKdAd4nlr9wUO28xYSn-lg1wuNEHGwv4HMB87xWUDJVE2weNLTElbQ6986B2pIzxI=s1360-w1360-h1020-rw" alt="Siswa SMK"/>
-  </div>
+  <div class="hero-aside"></div>
   <div class="container">
     <div class="hero-content">
       <div class="hero-tag"><i class="fas fa-graduation-cap"></i> SELAMAT DATANG DI SMK INSAN MADANI!</div>
@@ -467,12 +433,6 @@
       <p>SMK Insan Madani Palasari hadir untuk mencetak generasi unggul, berakhlak mulia, dan siap bersaing di dunia kerja maupun wirausaha dengan pendidikan berkualitas tinggi.</p>
       <div class="hero-btns">
         <a href="#sejarah" class="btn-primary"><i class="fas fa-arrow-right"></i> Lebih Lanjut</a>
-        <!--
-          ============================================================
-          TOMBOL DAFTAR SEKARANG → WhatsApp
-          Ganti nomor jika berubah: https://wa.me/62XXXXXXXXXX
-          ============================================================
-        -->
         <a href="https://wa.me/6289541290383?text=Halo%2C%20saya%20ingin%20mendaftar%20di%20SMK%20Insan%20Madani%20Palasari." target="_blank" rel="noopener" class="btn-outline">
           <i class="fab fa-whatsapp"></i> Daftar Sekarang
         </a>
@@ -561,10 +521,10 @@
 <section class="stats">
   <div class="container">
     <div class="stats-grid">
-      <div class="stat-item"><div class="stat-icon"><i class="fas fa-book-open"></i></div><div class="stat-num" data-target="24">100</div><div class="stat-label">+ Total Program Belajar</div></div>
-      <div class="stat-item"><div class="stat-icon"><i class="fas fa-user-graduate"></i></div><div class="stat-num" data-target="1800">110</div><div class="stat-label">+ Total Siswa Aktif</div></div>
-      <div class="stat-item"><div class="stat-icon"><i class="fas fa-chalkboard-teacher"></i></div><div class="stat-num" data-target="62">30</div><div class="stat-label">+ Guru & Staf Terlatih</div></div>
-      <div class="stat-item"><div class="stat-icon"><i class="fas fa-trophy"></i></div><div class="stat-num" data-target="45">50</div><div class="stat-label">+ Penghargaan Diraih</div></div>
+      <div class="stat-item"><div class="stat-icon"><i class="fas fa-book-open"></i></div><div class="stat-num" data-target="24">0</div><div class="stat-label">+ Total Program Belajar</div></div>
+      <div class="stat-item"><div class="stat-icon"><i class="fas fa-user-graduate"></i></div><div class="stat-num" data-target="110">0</div><div class="stat-label">+ Total Siswa Aktif</div></div>
+      <div class="stat-item"><div class="stat-icon"><i class="fas fa-chalkboard-teacher"></i></div><div class="stat-num" data-target="30">0</div><div class="stat-label">+ Guru & Staf Terlatih</div></div>
+      <div class="stat-item"><div class="stat-icon"><i class="fas fa-trophy"></i></div><div class="stat-num" data-target="50">0</div><div class="stat-label">+ Penghargaan Diraih</div></div>
     </div>
   </div>
 </section>
@@ -578,9 +538,18 @@
       <p>Program keahlian kejuruan yang relevan dan siap mengantarkan Anda menuju karir impian.</p>
     </div>
     <div class="courses-grid">
-      <div class="course-card"><div class="c-img"><img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&q=80" alt="TKJ"/><span class="c-badge">Unggulan</span><div class="c-meta"><span class="mpill"><i class="fas fa-book"></i> 12 Modul</span><span class="mpill"><i class="fas fa-users"></i> 240 Siswa</span></div></div><div class="c-body"><h4>Teknik Komputer dan Jaringan</h4><p>Pelajari instalasi jaringan, konfigurasi server, troubleshooting hardware & software, serta keamanan siber.</p><div class="c-footer"><div class="stars">★★★★★ <span>(4.9)</span></div><a href="#" class="btn-sm">Detail</a></div></div></div>
-      <div class="course-card"><div class="c-img"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80" alt="Akuntansi"/><span class="c-badge">Populer</span><div class="c-meta"><span class="mpill"><i class="fas fa-book"></i> 10 Modul</span><span class="mpill"><i class="fas fa-users"></i> 210 Siswa</span></div></div><div class="c-body"><h4>Akuntansi dan Keuangan</h4><p>Kuasai pembukuan, laporan keuangan, perpajakan, dan aplikasi akuntansi modern yang dibutuhkan dunia usaha.</p><div class="c-footer"><div class="stars">★★★★★ <span>(4.8)</span></div><a href="#" class="btn-sm">Detail</a></div></div></div>
-      <div class="course-card"><div class="c-img"><img src="https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?w=600&q=80" alt="OTKP"/><span class="c-badge">Terbaru</span><div class="c-meta"><span class="mpill"><i class="fas fa-book"></i> 9 Modul</span><span class="mpill"><i class="fas fa-users"></i> 185 Siswa</span></div></div><div class="c-body"><h4>Otomatisasi Tata Kelola Perkantoran</h4><p>Pelajari manajemen kantor, kesekretarisan, korespondensi, dan otomatisasi perkantoran berbasis teknologi.</p><div class="c-footer"><div class="stars">★★★★☆ <span>(4.7)</span></div><a href="#" class="btn-sm">Detail</a></div></div></div>
+      <div class="course-card">
+        <div class="c-img"><img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&q=80" alt="TKJ"/><span class="c-badge">Unggulan</span><div class="c-meta"><span class="mpill"><i class="fas fa-book"></i> 12 Modul</span><span class="mpill"><i class="fas fa-users"></i> 240 Siswa</span></div></div>
+        <div class="c-body"><h4>Teknik Komputer dan Jaringan</h4><p>Pelajari instalasi jaringan, konfigurasi server, troubleshooting hardware & software, serta keamanan siber.</p><div class="c-footer"><div class="stars">★★★★★ <span>(4.9)</span></div><button class="btn-sm" onclick="openJurusan('tkj')">Detail</button></div></div>
+      </div>
+      <div class="course-card">
+        <div class="c-img"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80" alt="Akuntansi"/><span class="c-badge">Populer</span><div class="c-meta"><span class="mpill"><i class="fas fa-book"></i> 10 Modul</span><span class="mpill"><i class="fas fa-users"></i> 210 Siswa</span></div></div>
+        <div class="c-body"><h4>Akuntansi dan Keuangan</h4><p>Kuasai pembukuan, laporan keuangan, perpajakan, dan aplikasi akuntansi modern yang dibutuhkan dunia usaha.</p><div class="c-footer"><div class="stars">★★★★★ <span>(4.8)</span></div><button class="btn-sm" onclick="openJurusan('akuntansi')">Detail</button></div></div>
+      </div>
+      <div class="course-card">
+        <div class="c-img"><img src="https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?w=600&q=80" alt="OTKP"/><span class="c-badge">Terbaru</span><div class="c-meta"><span class="mpill"><i class="fas fa-book"></i> 9 Modul</span><span class="mpill"><i class="fas fa-users"></i> 185 Siswa</span></div></div>
+        <div class="c-body"><h4>Otomatisasi Tata Kelola Perkantoran</h4><p>Pelajari manajemen kantor, kesekretarisan, korespondensi, dan otomatisasi perkantoran berbasis teknologi.</p><div class="c-footer"><div class="stars">★★★★☆ <span>(4.7)</span></div><button class="btn-sm" onclick="openJurusan('otkp')">Detail</button></div></div>
+      </div>
     </div>
   </div>
 </section>
@@ -593,8 +562,6 @@
       <h2>Kenali <span>Guru</span> Kami</h2>
       <p>Tim pendidik berpengalaman dan berdedikasi yang siap membimbing siswa menuju prestasi terbaik.</p>
     </div>
-
-    <!-- KEPALA SEKOLAH -->
     <div class="kepsek-wrap">
       <div class="kepsek-card">
         <div class="kepsek-img">
@@ -612,25 +579,18 @@
         </div>
       </div>
     </div>
-
-    <!-- WAKASEK -->
     <p class="sub-ttl">Wakil <span>Kepala Sekolah</span></p>
     <div class="wks-grid">
-      <div class="wks-card"><div class="wks-img"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80" alt="Waka Kurikulum"/><div class="wks-badge">Waka Kurikulum</div></div><div class="wks-info"><h4>Hendra Kusuma, S.Pd., M.Pd.</h4><p>Wakasek Kurikulum</p></div></div>
-      <div class="wks-card"><div class="wks-img"><img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&q=80" alt="Waka Kesiswaan"/><div class="wks-badge">Waka Kesiswaan</div></div><div class="wks-info"><h4>Siti Rahma, S.Pd., M.Pd.</h4><p>Wakasek Kesiswaan</p></div></div>
-      <div class="wks-card"><div class="wks-img"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80" alt="Waka Sarana"/><div class="wks-badge">Waka Sarana & Prasarana</div></div><div class="wks-info"><h4>Budi Santoso, S.T., M.T.</h4><p>Wakasek Sarana & Prasarana</p></div></div>
-      <div class="wks-card"><div class="wks-img"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80" alt="Waka Humas"/><div class="wks-badge">Waka Humas & Industri</div></div><div class="wks-info"><h4>Dewi Lestari, S.E., M.M.</h4><p>Wakasek Humas & Industri</p></div></div>
+      <div class="wks-card"><div class="wks-img"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80" alt=""/><div class="wks-badge">Waka Kurikulum</div></div><div class="wks-info"><h4>Hendra Kusuma, S.Pd., M.Pd.</h4><p>Wakasek Kurikulum</p></div></div>
+      <div class="wks-card"><div class="wks-img"><img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&q=80" alt=""/><div class="wks-badge">Waka Kesiswaan</div></div><div class="wks-info"><h4>Siti Rahma, S.Pd., M.Pd.</h4><p>Wakasek Kesiswaan</p></div></div>
+      <div class="wks-card"><div class="wks-img"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80" alt=""/><div class="wks-badge">Waka Sarana & Prasarana</div></div><div class="wks-info"><h4>Budi Santoso, S.T., M.T.</h4><p>Wakasek Sarana & Prasarana</p></div></div>
+      <div class="wks-card"><div class="wks-img"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80" alt=""/><div class="wks-badge">Waka Humas & Industri</div></div><div class="wks-info"><h4>Dewi Lestari, S.E., M.M.</h4><p>Wakasek Humas & Industri</p></div></div>
     </div>
-
-    <!-- TOGGLE SEMUA GURU -->
     <button class="guru-toggle-btn" onclick="toggleGuru()" id="guruBtn">
       <h3><i class="fas fa-users"></i> Lihat Semua Guru & Staf Pengajar</h3>
       <div class="guru-arrow" id="guruArrow"><i class="fas fa-chevron-down"></i></div>
     </button>
-
     <div class="guru-body" id="guruBody">
-
-      <!-- TKJ -->
       <div class="tg">
         <div class="tg-label"><i class="fas fa-laptop-code"></i> Jurusan Teknik Komputer & Jaringan (TKJ)</div>
         <div class="tg-row">
@@ -641,8 +601,6 @@
           <div class="tc"><div class="tc-img"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&q=80" alt=""/><div class="tc-soc"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fas fa-envelope"></i></a></div></div><div class="tc-info"><h5>Rina Sari, S.Pd.</h5><p>Guru Pemrograman Dasar</p></div></div>
         </div>
       </div>
-
-      <!-- Akuntansi -->
       <div class="tg">
         <div class="tg-label"><i class="fas fa-calculator"></i> Jurusan Akuntansi & Keuangan</div>
         <div class="tg-row">
@@ -653,8 +611,6 @@
           <div class="tc"><div class="tc-img"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&q=80" alt=""/><div class="tc-soc"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fas fa-envelope"></i></a></div></div><div class="tc-info"><h5>Sari Wulandari, S.Pd.</h5><p>Guru Komputer Akuntansi</p></div></div>
         </div>
       </div>
-
-      <!-- OTKP -->
       <div class="tg">
         <div class="tg-label"><i class="fas fa-briefcase"></i> Jurusan Otomatisasi Tata Kelola Perkantoran (OTKP)</div>
         <div class="tg-row">
@@ -665,8 +621,6 @@
           <div class="tc"><div class="tc-img"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&q=80" alt=""/><div class="tc-soc"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fas fa-envelope"></i></a></div></div><div class="tc-info"><h5>Wita Permata, S.Pd.</h5><p>Guru Otomatisasi Kantor</p></div></div>
         </div>
       </div>
-
-      <!-- Mapel Umum -->
       <div class="tg">
         <div class="tg-label"><i class="fas fa-book"></i> Guru Mata Pelajaran Umum</div>
         <div class="tg-row">
@@ -677,8 +631,7 @@
           <div class="tc"><div class="tc-img"><img src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?w=300&q=80" alt=""/><div class="tc-soc"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fas fa-envelope"></i></a></div></div><div class="tc-info"><h5>Dani Wijaya, S.Pd.</h5><p>Guru PJOK</p></div></div>
         </div>
       </div>
-
-    </div><!-- /guru-body -->
+    </div>
   </div>
 </section>
 
@@ -729,33 +682,15 @@
     <div class="news-grid">
       <div class="news-card">
         <div class="n-img"><img src="https://images.unsplash.com/photo-1560439514-4e9645039924?w=600&q=80" alt=""/></div>
-        <div class="n-body">
-          <span class="n-cat">Prestasi</span>
-          <div class="n-date"><i class="fas fa-calendar-alt"></i> 15 Maret 2025</div>
-          <h4>Siswa SMK Insan Madani Raih Juara 1 LKS Tingkat Provinsi Jawa Barat</h4>
-          <p>Tim kami berhasil meraih juara pertama pada Lomba Kompetensi Siswa bidang IT Network Systems Administration...</p>
-          <button class="n-link" onclick="openArticle('a1')">Baca Selengkapnya <i class="fas fa-arrow-right"></i></button>
-        </div>
+        <div class="n-body"><span class="n-cat">Prestasi</span><div class="n-date"><i class="fas fa-calendar-alt"></i> 15 Maret 2025</div><h4>Siswa SMK Insan Madani Raih Juara 1 LKS Tingkat Provinsi Jawa Barat</h4><p>Tim kami berhasil meraih juara pertama pada Lomba Kompetensi Siswa bidang IT Network Systems Administration...</p><button class="n-link" onclick="openArticle('a1')">Baca Selengkapnya <i class="fas fa-arrow-right"></i></button></div>
       </div>
       <div class="news-card">
         <div class="n-img"><img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&q=80" alt=""/></div>
-        <div class="n-body">
-          <span class="n-cat">Pengumuman</span>
-          <div class="n-date"><i class="fas fa-calendar-alt"></i> 8 Maret 2025</div>
-          <h4>PPDB Tahun Ajaran 2025/2026 Resmi Dibuka — Catat Jadwal & Syaratnya!</h4>
-          <p>SMK Insan Madani Palasari membuka pendaftaran peserta didik baru mulai 1 April 2025. Simak info lengkap di sini...</p>
-          <button class="n-link" onclick="openArticle('a2')">Baca Selengkapnya <i class="fas fa-arrow-right"></i></button>
-        </div>
+        <div class="n-body"><span class="n-cat">Pengumuman</span><div class="n-date"><i class="fas fa-calendar-alt"></i> 8 Maret 2025</div><h4>PPDB Tahun Ajaran 2025/2026 Resmi Dibuka — Catat Jadwal & Syaratnya!</h4><p>SMK Insan Madani Palasari membuka pendaftaran peserta didik baru mulai 1 April 2025. Simak info lengkap di sini...</p><button class="n-link" onclick="openArticle('a2')">Baca Selengkapnya <i class="fas fa-arrow-right"></i></button></div>
       </div>
       <div class="news-card">
         <div class="n-img"><img src="https://images.unsplash.com/photo-1544531585-9847b68c8c86?w=600&q=80" alt=""/></div>
-        <div class="n-body">
-          <span class="n-cat">Kegiatan</span>
-          <div class="n-date"><i class="fas fa-calendar-alt"></i> 28 Februari 2025</div>
-          <h4>Workshop Digital Marketing Bersama Mitra Industri untuk Siswa Kelas XI</h4>
-          <p>SMK Insan Madani mengadakan workshop digital marketing menghadirkan praktisi berpengalaman dari industri...</p>
-          <button class="n-link" onclick="openArticle('a3')">Baca Selengkapnya <i class="fas fa-arrow-right"></i></button>
-        </div>
+        <div class="n-body"><span class="n-cat">Kegiatan</span><div class="n-date"><i class="fas fa-calendar-alt"></i> 28 Februari 2025</div><h4>Workshop Digital Marketing Bersama Mitra Industri untuk Siswa Kelas XI</h4><p>SMK Insan Madani mengadakan workshop digital marketing menghadirkan praktisi berpengalaman dari industri...</p><button class="n-link" onclick="openArticle('a3')">Baca Selengkapnya <i class="fas fa-arrow-right"></i></button></div>
       </div>
     </div>
   </div>
@@ -776,18 +711,26 @@
   </div>
 </div>
 
-<!-- CTA / PPDB -->
+<!-- MODAL JURUSAN -->
+<div class="art-modal" id="jurusanModal">
+  <div class="art-backdrop" onclick="closeJurusan()"></div>
+  <div class="art-box">
+    <div class="art-hero-img"><img id="jImg" src="" alt=""/></div>
+    <button class="art-close" onclick="closeJurusan()"><i class="fas fa-times"></i></button>
+    <div class="art-content">
+      <span class="art-cat" id="jCat"></span>
+      <h2 class="art-title" id="jTitle"></h2>
+      <div class="art-meta" id="jMeta"></div>
+      <div class="art-body" id="jBody"></div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
 <section class="cta-banner" id="ppdb">
   <div class="container">
     <h2>Mulai Perjalanan Belajar Anda Bersama Kami!</h2>
-    <p>Bergabunglah dengan lebih dari 1.800 siswa yang telah merasakan manfaat pendidikan berkualitas di SMK Insan Madani Palasari.</p>
-    <!--
-      ============================================================
-      TOMBOL DAFTAR SEKARANG → WhatsApp
-      Nomor: +62 895-4129-03832
-      Ganti nomor di href jika berubah.
-      ============================================================
-    -->
+    <p>Bergabunglah dengan lebih dari 110 siswa yang telah merasakan manfaat pendidikan berkualitas di SMK Insan Madani Palasari.</p>
     <a class="btn-wa" href="https://wa.me/6289541290383?text=Halo%20Kak%2C%20saya%20ingin%20mendaftar%20PPDB%20SMK%20Insan%20Madani%20Palasari%20Tahun%20Ajaran%202025%2F2026.%20Boleh%20info%20lebih%20lanjut%3F" target="_blank" rel="noopener">
       <i class="fab fa-whatsapp" style="font-size:20px;"></i> Daftar Sekarang via WhatsApp
     </a>
@@ -800,14 +743,7 @@
     <div class="footer-grid">
       <div class="footer-brand footer-col">
         <a class="f-logo" href="#">
-          <!--
-            ============================================================
-            LOGO FOOTER — Ganti src dengan logo resmi sekolah.
-            ============================================================
-          -->
-          <div class="f-logo-wrap">
-            <img src="https://placehold.co/100x100/1a7a6e/ffffff?text=IM" alt="Logo SMK Insan Madani Palasari"/>
-          </div>
+          <div class="f-logo-wrap"><img src="assets/logo.png" alt="Logo SMK Insan Madani Palasari"/></div>
           <div class="f-logo-txt">
             <div class="fs">SMK</div>
             <div class="fn"><span>Insan</span> Madani</div>
@@ -836,22 +772,19 @@
       <div class="footer-col">
         <h5>Program Keahlian</h5>
         <ul class="f-links">
-          <li><a href="#"><i class="fas fa-chevron-right"></i> Teknik Komputer Jaringan</a></li>
-          <li><a href="#"><i class="fas fa-chevron-right"></i> Akuntansi & Keuangan</a></li>
-          <li><a href="#"><i class="fas fa-chevron-right"></i> Otomatisasi Perkantoran</a></li>
+          <li><a href="#" onclick="openJurusan('tkj');return false;"><i class="fas fa-chevron-right"></i> Teknik Komputer Jaringan</a></li>
+          <li><a href="#" onclick="openJurusan('akuntansi');return false;"><i class="fas fa-chevron-right"></i> Akuntansi & Keuangan</a></li>
+          <li><a href="#" onclick="openJurusan('otkp');return false;"><i class="fas fa-chevron-right"></i> Otomatisasi Perkantoran</a></li>
           <li><a href="#"><i class="fas fa-chevron-right"></i> Ekstrakurikuler</a></li>
           <li><a href="#"><i class="fas fa-chevron-right"></i> Bimbingan Konseling</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h5>Kontak Kami</h5>
-        <div class="f-contact"><i class="fas fa-map-marker-alt"></i><span>Jl. Palasari No. 1, Palasari, Subang, Jawa Barat 41281</span></div>
+        <div class="f-contact"><i class="fas fa-map-marker-alt"></i><span>JL. PANDAWA RT. 001 RW. 004 PALASARI, Kec. Legok, Kab. Tangerang, Prov. Banten</span></div>
         <div class="f-contact"><i class="fas fa-phone"></i><span>+62 260 123 4567</span></div>
-        <div class="f-contact"><i class="fas fa-envelope"></i><span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0a63646c654a7967616364796b64676b6e6b64632479696224636e">[email&#160;protected]</a></span></div>
-        <div class="f-contact"><i class="fab fa-whatsapp"></i>
-          <!-- Ganti nomor WA jika berubah -->
-          <a href="https://wa.me/6289541290383" target="_blank">+62 895-4129-03832</a>
-        </div>
+        <div class="f-contact"><i class="fas fa-envelope"></i><span><a href="mailto:smkimp@gmail.com">smkimp@gmail.com</a></span></div>
+        <div class="f-contact"><i class="fab fa-whatsapp"></i><a href="https://wa.me/6289541290383" target="_blank">+62 895-4129-03832</a></div>
         <div class="f-contact"><i class="fas fa-clock"></i><span>Senin – Jumat: 07.00 – 15.30 WIB</span></div>
       </div>
     </div>
@@ -870,46 +803,19 @@
   <i class="fas fa-chevron-up"></i>
 </button>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-/* ── DATA ARTIKEL ── */
+<script>
+/* DATA ARTIKEL */
 const arts = {
-  a1:{
-    img:'https://images.unsplash.com/photo-1560439514-4e9645039924?w=900&q=80',
-    cat:'Prestasi',
-    title:'Siswa SMK Insan Madani Raih Juara 1 LKS Tingkat Provinsi Jawa Barat',
-    meta:'<span><i class="fas fa-calendar-alt"></i> 15 Maret 2025</span><span><i class="fas fa-user"></i> Tim Humas</span><span><i class="fas fa-tag"></i> Prestasi</span>',
-    body:`<p>SMK Insan Madani Palasari kembali menorehkan prestasi membanggakan. Pada ajang Lomba Kompetensi Siswa (LKS) Tingkat Provinsi Jawa Barat yang diselenggarakan di Bandung pada 10–13 Maret 2025, tim kami berhasil meraih <strong>Juara 1</strong> pada bidang lomba IT Network Systems Administration.</p>
-    <h5>Perjuangan Panjang Menuju Podium</h5>
-    <p>Para siswa telah berlatih intensif selama lebih dari tiga bulan di bawah bimbingan Bapak Reza Pratama, S.Kom. Seleksi dimulai dari tingkat sekolah, kemudian berlanjut ke tingkat Kabupaten Subang sebelum mewakili daerah di tingkat provinsi.</p>
-    <p>"Kami tidak menyangka bisa menang, karena pesaingnya dari sekolah-sekolah besar. Tapi kami percaya pada latihan yang sudah kami jalani," ujar Ahmad Rizkiansyah, siswa peraih juara kelas XI TKJ 1.</p>
-    <h5>Dukungan Penuh Sekolah</h5>
-    <p>Kepala SMK Insan Madani Palasari, Bapak Ahmad Fauzi, S.Pd., M.M., menyampaikan rasa bangga dan terima kasih kepada seluruh pihak yang mendukung. Sebagai juara 1 provinsi, tim SMK Insan Madani berhak mewakili Jawa Barat dalam LKS Tingkat Nasional yang akan diselenggarakan pada Juni 2025. Semoga dapat mengharumkan nama Jawa Barat!</p>`
-  },
-  a2:{
-    img:'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=900&q=80',
-    cat:'Pengumuman',
-    title:'PPDB Tahun Ajaran 2025/2026 Resmi Dibuka — Catat Jadwal & Syaratnya!',
-    meta:'<span><i class="fas fa-calendar-alt"></i> 8 Maret 2025</span><span><i class="fas fa-user"></i> Admin PPDB</span><span><i class="fas fa-tag"></i> Pengumuman</span>',
-    body:`<p>SMK Insan Madani Palasari dengan bangga mengumumkan bahwa Penerimaan Peserta Didik Baru (PPDB) untuk Tahun Ajaran 2025/2026 resmi dibuka mulai <strong>1 April 2025</strong>. Kami membuka pendaftaran untuk tiga program keahlian: Teknik Komputer Jaringan (TKJ), Akuntansi & Keuangan, dan Otomatisasi Tata Kelola Perkantoran (OTKP).</p>
-    <h5>Jadwal PPDB 2025/2026</h5>
-    <p><strong>Pendaftaran Online & Offline:</strong> 1 April – 30 Juni 2025<br/><strong>Seleksi Berkas:</strong> 1 – 7 Juli 2025<br/><strong>Pengumuman Hasil:</strong> 10 Juli 2025<br/><strong>Daftar Ulang:</strong> 11 – 20 Juli 2025<br/><strong>MPLS:</strong> 14 Juli 2025</p>
-    <h5>Persyaratan Pendaftaran</h5>
-    <ul><li>Fotocopy Ijazah / SKL SMP/MTs (dilegalisir)</li><li>Fotocopy SHUN / Rapor kelas 7–9 (dilegalisir)</li><li>Pas foto terbaru 3×4, 4 lembar, latar merah</li><li>Fotocopy KTP orang tua dan Kartu Keluarga</li><li>Fotocopy NISN</li></ul>
-    <h5>Cara Mendaftar</h5>
-    <p>Pendaftaran dapat dilakukan secara <strong>online</strong> melalui WhatsApp resmi sekolah atau <strong>langsung</strong> ke kantor Tata Usaha SMK Insan Madani Palasari pada hari kerja (Senin–Jumat, 07.00–15.30 WIB). Untuk info lebih lanjut, hubungi kami di nomor yang tertera.</p>`
-  },
-  a3:{
-    img:'https://images.unsplash.com/photo-1544531585-9847b68c8c86?w=900&q=80',
-    cat:'Kegiatan',
-    title:'Workshop Digital Marketing Bersama Mitra Industri untuk Siswa Kelas XI',
-    meta:'<span><i class="fas fa-calendar-alt"></i> 28 Februari 2025</span><span><i class="fas fa-user"></i> Tim Humas</span><span><i class="fas fa-tag"></i> Kegiatan</span>',
-    body:`<p>SMK Insan Madani Palasari sukses menyelenggarakan <strong>Workshop Digital Marketing</strong> pada Jumat, 28 Februari 2025. Kegiatan ini diikuti oleh seluruh siswa kelas XI dari semua jurusan dan berlangsung di Aula SMK Insan Madani Palasari.</p>
-    <h5>Narasumber Berpengalaman dari Industri</h5>
-    <p>Workshop menghadirkan dua narasumber berpengalaman: Kak Dinda Ayu (Digital Marketing Specialist) dan Mas Fahri Rizki (Content Creator & SEO Expert). Materi mencakup strategi konten media sosial, SEO, hingga personal branding di era digital.</p>
-    <h5>Antusias dan Interaktif</h5>
-    <p>Kegiatan berlangsung dari 08.00–15.00 WIB. Siswa sangat antusias mengikuti sesi tanya jawab dan praktik membuat konten media sosial. "Ternyata digital marketing itu luas sekali, bukan cuma posting di Instagram. Saya jadi termotivasi untuk belajar lebih serius," kata Siska, siswi kelas XI Akuntansi.</p>
-    <p>Kegiatan ini merupakan bagian dari program kemitraan industri yang rutin diselenggarakan setiap semester guna mempersiapkan siswa menghadapi tantangan dunia kerja nyata.</p>`
-  }
+  a1:{img:'https://images.unsplash.com/photo-1560439514-4e9645039924?w=900&q=80',cat:'Prestasi',title:'Siswa SMK Insan Madani Raih Juara 1 LKS Tingkat Provinsi Jawa Barat',meta:'<span><i class="fas fa-calendar-alt"></i> 15 Maret 2025</span><span><i class="fas fa-user"></i> Tim Humas</span><span><i class="fas fa-tag"></i> Prestasi</span>',body:`<p>SMK Insan Madani Palasari kembali menorehkan prestasi membanggakan. Pada ajang Lomba Kompetensi Siswa (LKS) Tingkat Provinsi Jawa Barat yang diselenggarakan di Bandung pada 10–13 Maret 2025, tim kami berhasil meraih <strong>Juara 1</strong> pada bidang lomba IT Network Systems Administration.</p><h5>Perjuangan Panjang Menuju Podium</h5><p>Para siswa telah berlatih intensif selama lebih dari tiga bulan di bawah bimbingan Bapak Reza Pratama, S.Kom. Seleksi dimulai dari tingkat sekolah, kemudian berlanjut ke tingkat Kabupaten Subang sebelum mewakili daerah di tingkat provinsi.</p><p>"Kami tidak menyangka bisa menang, karena pesaingnya dari sekolah-sekolah besar. Tapi kami percaya pada latihan yang sudah kami jalani," ujar Ahmad Rizkiansyah, siswa peraih juara kelas XI TKJ 1.</p><h5>Dukungan Penuh Sekolah</h5><p>Kepala SMK Insan Madani Palasari, Bapak Ahmad Fauzi, S.Pd., M.M., menyampaikan rasa bangga dan terima kasih kepada seluruh pihak yang mendukung. Sebagai juara 1 provinsi, tim SMK Insan Madani berhak mewakili Jawa Barat dalam LKS Tingkat Nasional yang akan diselenggarakan pada Juni 2025.</p>`},
+  a2:{img:'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=900&q=80',cat:'Pengumuman',title:'PPDB Tahun Ajaran 2025/2026 Resmi Dibuka — Catat Jadwal & Syaratnya!',meta:'<span><i class="fas fa-calendar-alt"></i> 8 Maret 2025</span><span><i class="fas fa-user"></i> Admin PPDB</span><span><i class="fas fa-tag"></i> Pengumuman</span>',body:`<p>SMK Insan Madani Palasari dengan bangga mengumumkan bahwa Penerimaan Peserta Didik Baru (PPDB) untuk Tahun Ajaran 2025/2026 resmi dibuka mulai <strong>1 April 2025</strong>. Kami membuka pendaftaran untuk tiga program keahlian: Teknik Komputer Jaringan (TKJ), Akuntansi & Keuangan, dan Otomatisasi Tata Kelola Perkantoran (OTKP).</p><h5>Jadwal PPDB 2025/2026</h5><p><strong>Pendaftaran Online & Offline:</strong> 1 April – 30 Juni 2025<br/><strong>Seleksi Berkas:</strong> 1 – 7 Juli 2025<br/><strong>Pengumuman Hasil:</strong> 10 Juli 2025<br/><strong>Daftar Ulang:</strong> 11 – 20 Juli 2025<br/><strong>MPLS:</strong> 14 Juli 2025</p><h5>Persyaratan Pendaftaran</h5><ul><li>Fotocopy Ijazah / SKL SMP/MTs (dilegalisir)</li><li>Fotocopy SHUN / Rapor kelas 7–9 (dilegalisir)</li><li>Pas foto terbaru 3×4, 4 lembar, latar merah</li><li>Fotocopy KTP orang tua dan Kartu Keluarga</li><li>Fotocopy NISN</li></ul><h5>Cara Mendaftar</h5><p>Pendaftaran dapat dilakukan secara <strong>online</strong> melalui WhatsApp resmi sekolah atau <strong>langsung</strong> ke kantor Tata Usaha SMK Insan Madani Palasari pada hari kerja (Senin–Jumat, 07.00–15.30 WIB).</p>`},
+  a3:{img:'https://images.unsplash.com/photo-1544531585-9847b68c8c86?w=900&q=80',cat:'Kegiatan',title:'Workshop Digital Marketing Bersama Mitra Industri untuk Siswa Kelas XI',meta:'<span><i class="fas fa-calendar-alt"></i> 28 Februari 2025</span><span><i class="fas fa-user"></i> Tim Humas</span><span><i class="fas fa-tag"></i> Kegiatan</span>',body:`<p>SMK Insan Madani Palasari sukses menyelenggarakan <strong>Workshop Digital Marketing</strong> pada Jumat, 28 Februari 2025. Kegiatan ini diikuti oleh seluruh siswa kelas XI dari semua jurusan dan berlangsung di Aula SMK Insan Madani Palasari.</p><h5>Narasumber Berpengalaman dari Industri</h5><p>Workshop menghadirkan dua narasumber berpengalaman: Kak Dinda Ayu (Digital Marketing Specialist) dan Mas Fahri Rizki (Content Creator & SEO Expert). Materi mencakup strategi konten media sosial, SEO, hingga personal branding di era digital.</p><h5>Antusias dan Interaktif</h5><p>Kegiatan berlangsung dari 08.00–15.00 WIB. Siswa sangat antusias mengikuti sesi tanya jawab dan praktik membuat konten media sosial. Kegiatan ini merupakan bagian dari program kemitraan industri yang rutin diselenggarakan setiap semester.</p>`}
+};
+
+/* DATA JURUSAN */
+const jurusans = {
+  tkj:{img:'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=900&q=80',cat:'Unggulan',title:'Teknik Komputer dan Jaringan (TKJ)',meta:'<span><i class="fas fa-clock"></i> 3 Tahun</span><span><i class="fas fa-users"></i> 240 Siswa</span><span><i class="fas fa-star"></i> Akreditasi A</span>',body:`<p>Program keahlian Teknik Komputer dan Jaringan (TKJ) membekali siswa dengan kompetensi di bidang teknologi informasi dan komunikasi, khususnya dalam pengelolaan sistem komputer dan jaringan.</p><h5>Kompetensi yang Dipelajari</h5><ul><li>Instalasi dan konfigurasi jaringan komputer (LAN, WAN, WLAN)</li><li>Administrasi server Linux dan Windows Server</li><li>Keamanan jaringan dan siber (Cybersecurity)</li><li>Troubleshooting hardware dan software</li><li>Pemrograman dasar dan web development</li><li>Cloud computing dan virtualisasi</li></ul><h5>Prospek Karir</h5><p>Lulusan TKJ dapat bekerja sebagai Network Engineer, System Administrator, IT Support, Web Developer, atau berwirausaha di bidang teknologi informasi.</p><h5>Fasilitas</h5><p>Dilengkapi laboratorium komputer modern, perangkat jaringan Cisco, server dedicated, dan akses internet berkecepatan tinggi untuk mendukung praktik langsung siswa.</p>`},
+  akuntansi:{img:'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=900&q=80',cat:'Populer',title:'Akuntansi dan Keuangan Lembaga',meta:'<span><i class="fas fa-clock"></i> 3 Tahun</span><span><i class="fas fa-users"></i> 210 Siswa</span><span><i class="fas fa-star"></i> Akreditasi A</span>',body:`<p>Program keahlian Akuntansi dan Keuangan Lembaga mempersiapkan siswa menjadi tenaga profesional di bidang keuangan dan akuntansi yang kompeten dan siap kerja.</p><h5>Kompetensi yang Dipelajari</h5><ul><li>Siklus akuntansi perusahaan jasa, dagang, dan manufaktur</li><li>Laporan keuangan dan analisis keuangan</li><li>Perpajakan dan administrasi pajak</li><li>Aplikasi akuntansi komputer (MYOB, Accurate, Zahir)</li><li>Perbankan dan lembaga keuangan</li><li>Manajemen keuangan dasar</li></ul><h5>Prospek Karir</h5><p>Lulusan Akuntansi dapat bekerja sebagai Akuntan, Staff Keuangan, Kasir, Teller Bank, Tax Consultant, atau melanjutkan ke perguruan tinggi jurusan Akuntansi/Keuangan.</p><h5>Fasilitas</h5><p>Laboratorium akuntansi komputer dengan software akuntansi terlengkap, ruang praktik perpajakan, dan koneksi langsung dengan kantor pajak setempat untuk praktik nyata.</p>`},
+  otkp:{img:'https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?w=900&q=80',cat:'Terbaru',title:'Otomatisasi dan Tata Kelola Perkantoran (OTKP)',meta:'<span><i class="fas fa-clock"></i> 3 Tahun</span><span><i class="fas fa-users"></i> 185 Siswa</span><span><i class="fas fa-star"></i> Akreditasi B</span>',body:`<p>Program keahlian Otomatisasi dan Tata Kelola Perkantoran (OTKP) membekali siswa dengan kemampuan administrasi perkantoran modern berbasis teknologi digital.</p><h5>Kompetensi yang Dipelajari</h5><ul><li>Otomatisasi perkantoran (Microsoft Office, Google Workspace)</li><li>Kearsipan manual dan elektronik</li><li>Korespondensi bisnis Bahasa Indonesia dan Inggris</li><li>Manajemen rapat dan event perusahaan</li><li>Komunikasi bisnis dan public relations</li><li>Administrasi kepegawaian dan keuangan kantor</li></ul><h5>Prospek Karir</h5><p>Lulusan OTKP dapat bekerja sebagai Sekretaris, Staff Administrasi, Resepsionis, Office Manager, atau berwirausaha di bidang jasa administrasi dan event organizer.</p><h5>Fasilitas</h5><p>Ruang perkantoran simulasi lengkap dengan peralatan kantor modern, laboratorium komputer, dan ruang rapat untuk praktik meeting dan presentasi bisnis.</p>`}
 };
 
 function openArticle(id){
@@ -926,7 +832,23 @@ function closeArticle(){
   document.getElementById('artModal').classList.remove('open');
   document.body.style.overflow='';
 }
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeArticle();});
+
+function openJurusan(id){
+  const j=jurusans[id];
+  document.getElementById('jImg').src=j.img;
+  document.getElementById('jCat').textContent=j.cat;
+  document.getElementById('jTitle').textContent=j.title;
+  document.getElementById('jMeta').innerHTML=j.meta;
+  document.getElementById('jBody').innerHTML=j.body;
+  document.getElementById('jurusanModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeJurusan(){
+  document.getElementById('jurusanModal').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeArticle();closeJurusan();}});
 
 function toggleGuru(){
   document.getElementById('guruBody').classList.toggle('open');
@@ -936,15 +858,17 @@ function toggleMenu(){
   document.getElementById('mobileMenu').classList.toggle('open');
 }
 
-/* Scroll top */
 const stBtn=document.getElementById('scrollTop');
 window.addEventListener('scroll',()=>{stBtn.classList.toggle('visible',scrollY>400);});
 
-/* Counter */
 function animCount(el){
-  const t=+el.dataset.target; let c=0;
+  const t=+el.dataset.target;let c=0;
   const s=Math.ceil(t/60);
   const iv=setInterval(()=>{c+=s;if(c>=t){c=t;clearInterval(iv);}el.textContent=c;},28);
 }
 new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('[data-target]').forEach(animCount);}});}).observe(document.querySelector('.stats'));
+  entries.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('[data-target]').forEach(animCount);}});
+},{threshold:.3}).observe(document.querySelector('.stats'));
+</script>
+</body>
+</html>
